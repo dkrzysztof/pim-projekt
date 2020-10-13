@@ -28,7 +28,7 @@ ___
  - Serwer aplikacji: **ASP.NET Core WebAPI**,
 
 ## Skład grupy
-- Antos Kacper, 
-- Dydak Krzysztof,
-- Hrycalik Damian, 
-- Kalina Jakub,
+- Kacper , 
+- Krzysztof 242075,
+- Damian 241340, 
+- Jakub 241346,
