@@ -1,0 +1,152 @@
+*.swp
+*.*~
+project.lock.json
+.DS_Store
+*.pyc
+nupkg/
+
+# Visual Studio Code
+.vscode
+
+# Rider
+.idea
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+server/[Dd]ebug/
+server/[Dd]ebugPublic/
+server/[Rr]elease/
+server/[Rr]eleases/
+server/x64/
+server/x86/
+server/build/
+server/bld/
+server/[Bb]in/
+server/[Oo]bj/
+server/[Oo]ut/
+msbuild.log
+msbuild.err
+msbuild.wrn
+
+# Visual Studio 2015
+.vs/
+
+
+# Xcode
+!**/*.xcodeproj
+!**/*.pbxproj
+!**/*.xcworkspacedata
+!**/*.xcsettings
+!**/*.xcscheme
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata
+*.xccheckout
+*.moved-aside
+DerivedData
+*.hmap
+*.ipa
+*.xcuserstate
+project.xcworkspace
+
+# Gradle
+/mobile/build/
+/mobile/packages/react-native-codegen/android/build/
+/mobile/packages/react-native-codegen/android/gradlePlugin-build/gradlePlugin/build
+/mobile/packages/rn-tester/android/app/.cxx/
+/mobile/packages/rn-tester/android/app/build/
+/mobile/packages/rn-tester/android/app/gradle/
+/mobile/packages/rn-tester/android/app/gradlew
+/mobile/packages/rn-tester/android/app/gradlew.bat
+/mobile/ReactAndroid/build/
+/mobile/ReactAndroid/gradle/
+/mobile/ReactAndroid/gradlew
+/mobile/ReactAndroid/gradlew.bat
+
+# Buck
+.buckd
+buck-out
+/mobile/.lsp.buckd
+/mobile/.lsp-buck-out
+/mobile/ReactAndroid/src/main/jni/prebuilt/lib/
+/mobile/ReactAndroid/src/main/gen
+
+# Android Studio
+.project
+.settings
+.classpath
+
+# Watchman
+.watchmanconfig
+
+# Android
+.idea
+.gradle
+local.properties
+*.iml
+/mobile/android/
+
+# Node
+node_modules
+*.log
+.nvm
+/mobile/bots/node_modules/
+package-lock.json
+
+# OS X
+.DS_Store
+
+# Test generated files
+/mobile/ReactAndroid/src/androidTest/assets/AndroidTestBundle.js
+*.js.meta
+
+/mobile/coverage
+/mobile/third-party
+
+# Root dir shouldn't have Xcode project
+/mobile/*.xcodeproj
+
+# ReactCommon subdir shouldn't have Xcode project
+/mobile/ReactCommon/**/*.xcodeproj
+/mobile/packages/rn-tester/build
+/mobile/packages/rn-tester/android/app/build/*
+
+# Libs that shouldn't have Xcode project
+/mobile/Libraries/FBLazyVector/**/*.xcodeproj
+/mobile/Libraries/FBReactNativeSpec/**/*.xcodeproj
+/mobile/Libraries/RCTRequired/**/*.xcodeproj
+/mobile/React/CoreModules/**/*.xcodeproj
+/mobile/packages/react-native-codegen/**/*.xcodeproj
+
+# CocoaPods
+/mobile/template/ios/Pods/
+/mobile/template/ios/Podfile.lock
+/mobile/packages/rn-tester/Gemfile.lock
+
+# Ignore RNTester specific Pods, but keep the __offline_mirrors__ here.
+/mobile/packages/rn-tester/Pods/*
+!/mobile/packages/rn-tester/Pods/__offline_mirrors__
+
+# react-native-codegen
+/mobile/packages/react-native-codegen/lib
+/mobile/ReactCommon/fabric/components/rncore/
+/mobile/schema-native-modules.json
+/mobile/schema-rncore.json
+
+# Visual studio
+.vscode
+.vs
+
+# Android memory profiler files
+*.hprof
