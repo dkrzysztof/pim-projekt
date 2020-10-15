@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using server.Database.Models;
 using server.Dtos.Account.Requests;
+using server.Services.Interfaces;
 
 namespace server.Controllers
 {
@@ -14,25 +15,17 @@ namespace server.Controllers
     [ApiController]
     public class AccountController : ControllerBase
     {
-        private readonly IMapper _mapper;
+        private readonly IAccountService _accountService;
 
-        public AccountController(IMapper mapper)
+        public AccountController(IAccountService accountService)
         {
-            _mapper = mapper;
+            _accountService = accountService;
         }
 
 
         [HttpPost("login")]
         public Task<IActionResult> Login()
         {
-            ApplicationUser tmp = new ApplicationUser
-            {
-                Id = 1,
-                FirstName = "Imie",
-                LastName = "Nazwisko",
-                Email = "email"
-            };
-            var tmpMap = _mapper.Map<ApplicationUser, RegisterUserRequest>(tmp);
             throw new NotImplementedException();
         }
 

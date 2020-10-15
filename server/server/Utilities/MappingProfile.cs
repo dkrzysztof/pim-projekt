@@ -12,7 +12,18 @@ namespace server.Utilities
     {
         public MappingProfile()
         {
-            CreateMap<ApplicationUser, RegisterUserRequest>();
+            MapsForAccount();
+            MapsForNote();
+        }
+
+        void MapsForAccount()
+        {
+
+        }
+
+        void MapsForNote()
+        {
+
         }
     }
 }

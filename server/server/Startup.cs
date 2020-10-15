@@ -15,6 +15,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using server.Database;
 using server.Database.Models;
+using server.Services;
+using server.Services.Interfaces;
 using server.Utilities;
 
 namespace server
@@ -42,6 +44,10 @@ namespace server
                 .AddSignInManager<SignInManager<ApplicationUser>>()
                 .AddEntityFrameworkStores<DatabaseContext>()
                 .AddDefaultTokenProviders();
+
+            // Dependency Injection
+            services.AddTransient<IAccountService, AccountService>();
+            services.AddTransient<INoteService, NoteService>();
         
             services.AddControllers();
 

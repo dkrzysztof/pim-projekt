@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using server.Services.Interfaces;
 
 namespace server.Controllers
 {
@@ -12,6 +13,13 @@ namespace server.Controllers
     [ApiController]
     public class NoteController : ControllerBase
     {
+
+        private readonly INoteService _noteService;
+
+        public NoteController(INoteService noteService)
+        {
+            _noteService = noteService;
+        }
 
         [HttpGet]
         public Task<IActionResult> GetNotes()

@@ -24,7 +24,6 @@
   <ItemGroup>
     <Folder Include="Dtos\Account\Responses\" />
     <Folder Include="Dtos\Note\" />
-    <Folder Include="Services\Interfaces\" />
   </ItemGroup>
 
 
