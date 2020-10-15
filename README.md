@@ -28,7 +28,7 @@ ___
  - Serwer aplikacji: **ASP.NET Core WebAPI**,
 
 ## Skład grupy
-- Kacper , 
+- Kacper 241263, 
 - Krzysztof 242075,
 - Damian 241340, 
 - Jakub 241346,
