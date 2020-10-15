@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using server.Dtos.Note.Response;
 using server.Services.Interfaces;
 
 namespace server.Controllers
@@ -22,9 +23,12 @@ namespace server.Controllers
         }
 
         [HttpGet]
-        public Task<IActionResult> GetNotes()
+        public async Task<IActionResult> GetNotes()
         {
-            throw new NotImplementedException();
+            int userId = 1;
+            var response = await _noteService.GetUserNotes(userId);
+
+            return Ok(response);
         }
 
         [HttpPost("create")]

@@ -1,4 +1,5 @@
 ﻿using server.Database.Models;
+using server.Dtos.Note.Response;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,5 +9,6 @@ namespace server.Services.Interfaces
 {
     public interface INoteService : IBaseService<Note>
     {
+        Task<GetAllNotesResponse> GetUserNotes(int userId);
     }
 }

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using server.Database.Models;
 using server.Dtos.Account.Requests;
+using server.Dtos.Note.Response;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,7 @@ namespace server.Utilities
 
         void MapsForAccount()
         {
-
+            CreateMap<Note, NoteForGetAllNotesResponse>();
         }
 
         void MapsForNote()
