@@ -19,5 +19,12 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.5.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Dtos\Account\" />
+    <Folder Include="Dtos\Note\" />
+    <Folder Include="Utilities\" />
+    <Folder Include="Services\Interfaces\" />
+  </ItemGroup>
+
 
 </Project>
