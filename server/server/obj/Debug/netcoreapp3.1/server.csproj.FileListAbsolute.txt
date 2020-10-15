@@ -139,6 +139,8 @@ E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\serv
 E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
 E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
 E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\AutoMapper.dll
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\obj\Debug\netcoreapp3.1\server.csproj.CoreCompileInputs.cache
 E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\obj\Debug\netcoreapp3.1\server.MvcApplicationPartsAssemblyInfo.cs
 E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\obj\Debug\netcoreapp3.1\server.MvcApplicationPartsAssemblyInfo.cache

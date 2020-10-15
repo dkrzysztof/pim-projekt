@@ -5,6 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.0-rc.2.20475.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.0-rc.2.20475.6">
@@ -20,9 +22,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Dtos\Account\" />
+    <Folder Include="Dtos\Account\Responses\" />
     <Folder Include="Dtos\Note\" />
-    <Folder Include="Utilities\" />
     <Folder Include="Services\Interfaces\" />
   </ItemGroup>
 

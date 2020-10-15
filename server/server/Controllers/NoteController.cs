@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,6 +12,7 @@ namespace server.Controllers
     [ApiController]
     public class NoteController : ControllerBase
     {
+
         [HttpGet]
         public Task<IActionResult> GetNotes()
         {
