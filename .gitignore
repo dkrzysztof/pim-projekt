@@ -98,11 +98,11 @@ local.properties
 /mobile/android/
 
 # Node
-node_modules
+mobile/node_modules
 *.log
 .nvm
 /mobile/bots/node_modules/
-package-lock.json
+mobile/package-lock.json
 
 # OS X
 .DS_Store
