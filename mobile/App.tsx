@@ -17,21 +17,15 @@ export default function App() {
 
 	return (
 		<View style={styles.container}>
-			<Text>Open up App.tsx to start working on your 1!</Text>
-			<StatusBar style="auto" />
-			<TouchableHighlight onPress={() => console.log('image tapped!')}>
-				<Image
-					blurRadius={2}
-					fadeDuration={1000}
-					source={{
-						uri:
-							'https://i.picsum.photos/id/1/200/300.jpg?hmac=jH5bDkLr6Tgy3oAg5khKCHeunZMHq0ehBZr6vGifPLY',
-						height: 400,
-						width: 200
-					}}
-				/>
-			</TouchableHighlight>
-			<Button title="CLICK" onPress={handleClick} />
+			<Text style={styles.title}>Planday</Text>
+			<View style={styles.subtitleRow}>
+				<Text numberOfLines={1} style={styles.subtitle}>
+					Sign In
+				</Text>
+				<Text numberOfLines={1} style={styles.subtitle}>
+					Sign Out
+				</Text>
+			</View>
 		</View>
 	);
 }
@@ -39,8 +33,22 @@ export default function App() {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: 'white',
+		color: 'white',
+		backgroundColor: '#292F3D',
 		alignItems: 'center',
 		justifyContent: 'center'
+	},
+	subtitleRow: {
+		flex: 1,
+		alignItems: 'center',
+		justifyContent: 'space-around'
+	},
+	title: {
+		color: 'white',
+		fontSize: 48
+	},
+	subtitle: {
+		color: 'white',
+		fontSize: 21
 	}
 });
