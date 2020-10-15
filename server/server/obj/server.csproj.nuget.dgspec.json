@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Stuff\\Programowanie\\pim-projekt\\server\\server\\server.csproj": {}
+    "E:\\Jakub\\Documents\\Programowanie\\C#\\ASP.NET Core\\Planday\\pim-projekt\\server\\server\\server.csproj": {}
   },
   "projects": {
-    "D:\\Stuff\\Programowanie\\pim-projekt\\server\\server\\server.csproj": {
+    "E:\\Jakub\\Documents\\Programowanie\\C#\\ASP.NET Core\\Planday\\pim-projekt\\server\\server\\server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Stuff\\Programowanie\\pim-projekt\\server\\server\\server.csproj",
+        "projectUniqueName": "E:\\Jakub\\Documents\\Programowanie\\C#\\ASP.NET Core\\Planday\\pim-projekt\\server\\server\\server.csproj",
         "projectName": "server",
-        "projectPath": "D:\\Stuff\\Programowanie\\pim-projekt\\server\\server\\server.csproj",
-        "packagesPath": "C:\\Users\\Kacper\\.nuget\\packages\\",
-        "outputPath": "D:\\Stuff\\Programowanie\\pim-projekt\\server\\server\\obj\\",
+        "projectPath": "E:\\Jakub\\Documents\\Programowanie\\C#\\ASP.NET Core\\Planday\\pim-projekt\\server\\server\\server.csproj",
+        "packagesPath": "C:\\Users\\Jakub\\.nuget\\packages\\",
+        "outputPath": "E:\\Jakub\\Documents\\Programowanie\\C#\\ASP.NET Core\\Planday\\pim-projekt\\server\\server\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Kacper\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Jakub\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -25,9 +25,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Users\\Kacper\\Desktop": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.emzi0767.com/api/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
@@ -66,6 +64,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[5.0.0-rc.2.20475.6, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[5.5.0, )"
             }
           },
           "imports": [
@@ -86,7 +88,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
         }
       }
     }
