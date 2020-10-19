@@ -1,89 +1,55 @@
-import { StatusBar } from 'expo-status-bar';
-import React, { useState } from 'react';
-import {
-	StyleSheet,
-	Text,
-	View,
-	SafeAreaView,
-	TextInput,
-	ImageBackground,
-	TouchableOpacity
-} from 'react-native';
-import LandingPageTextButton from './components/LandingPageTextButton';
+import React from 'react';
+import { Text, View } from 'react-native';
+import { AppLoading } from 'expo';
+import * as Font from 'expo-font';
+import { Ionicons } from '@expo/vector-icons';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
-import LoginPage from './pages/LoginPage/LoginPage';
-import SignUpPage from './pages/SignUpPage/SignUpPage';
+import PublicPage from './src/pages/PublicPage/PublicPage';
+import HomePage from './src/pages/Auth/HomePage/HomePage';
+import { RoutesList } from './src/Routes';
 
-export default function App() {
-	const [isToggled, toggleView] = useState<boolean>(true);
-
-	const handleToggleViewChange = () => {
-		toggleView(!isToggled);
-	};
-
-	return (
-		<SafeAreaView style={styles.container}>
-			<View style={styles.titleContainer}>
-				<Text style={styles.title}>Planday</Text>
-			</View>
-			<View style={styles.bodyContainer}>
-				<View style={styles.buttonsContainer}>
-					<LandingPageTextButton
-						buttonTitle="Sign In"
-						onPress={handleToggleViewChange}
-						isToggled={isToggled}
-					/>
-					<LandingPageTextButton
-						buttonTitle="Sign Up"
-						onPress={handleToggleViewChange}
-						isToggled={!isToggled}
-					/>
-				</View>
-			</View>
-			<View style={styles.componentContainer}>
-				{isToggled ? <LoginPage /> : <SignUpPage />}
-			</View>
-		</SafeAreaView>
-	);
+interface AppState {
+	isReady: boolean;
 }
 
-const styles = StyleSheet.create({
-	container: {
-		paddingTop: 30,
-		flex: 1,
-		color: 'white',
-		backgroundColor: '#292F3D',
-		alignItems: 'center',
-		justifyContent: 'center'
-	},
-	bodyContainer: {
-		flex: 1,
-		alignItems: 'center',
-		justifyContent: 'space-around',
-		width: 350,
-		height: '80%'
-	},
-	titleContainer: {
-		flex: 1,
-		height: '20%',
-		width: '100%',
-		justifyContent: 'center',
-		alignItems: 'center'
-	},
-	buttonsContainer: {
-		height: '10%',
-		width: '90%',
-		flex: 1,
-		flexDirection: 'row',
-		justifyContent: 'space-around',
-		alignItems: 'center'
-	},
-	componentContainer: {
-		height: '50%',
-		width: '100%'
-	},
-	title: {
-		color: 'white',
-		fontSize: 48
+const Stack = createStackNavigator<RoutesList>();
+
+export default class App extends React.Component<{}, AppState> {
+	constructor(props: any) {
+		super(props);
+		this.state = {
+			isReady: false
+		};
 	}
-});
+
+	async componentDidMount() {
+		await Font.loadAsync({
+			Roboto: require('native-base/Fonts/Roboto.ttf'),
+			Roboto_medium: require('native-base/Fonts/Roboto_medium.ttf'),
+			RobotoSlab: require('./assets/fonts/RobotoSlab-Medium.ttf'),
+			RobotoSlab_Bold: require('./assets/fonts/RobotoSlab-SemiBold.ttf'),
+			RobotoSlab_Light: require('./assets/fonts/RobotoSlab-Light.ttf'),
+			OpenSans: require('./assets/fonts/OpenSans-Regular.ttf'),
+			OpenSans_Bold: require('./assets/fonts/OpenSans-Bold.ttf'),
+			...Ionicons.font
+		});
+		this.setState({ isReady: true });
+	}
+
+	render() {
+		if (!this.state.isReady) {
+			return <AppLoading />;
+		}
+
+		return (
+			<NavigationContainer>
+				<Stack.Navigator initialRouteName="Public">
+					<Stack.Screen name="Public" component={PublicPage} />
+					<Stack.Screen name="Home" component={HomePage} />
+				</Stack.Navigator>
+			</NavigationContainer>
+		);
+	}
+}
