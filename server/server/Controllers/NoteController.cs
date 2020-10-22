@@ -44,9 +44,12 @@ namespace server.Controllers
         }
 
         [HttpPut("update")]
-        public Task<IActionResult> UpdateNote()
+        public async Task<IActionResult> UpdateNote([FromBody] UpdateNoteRequest updatedNote)
         {
-            throw new NotImplementedException();
+            var result = await _noteService.UpdateExistingNote(updatedNote);
+
+            if (!result) return NotFound();
+            return Ok();
         }
 
         [HttpDelete("{noteId}")]

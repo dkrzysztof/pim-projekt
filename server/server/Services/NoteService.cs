@@ -47,5 +47,21 @@ namespace server.Services
 
             return response;
         }
+
+        public Task<bool> UpdateExistingNote(UpdateNoteRequest updatedNote)
+        {
+            Note noteToUpdate = _context.Set<Note>().Where(n => n.Id == updatedNote.Id).FirstOrDefault();
+            if (noteToUpdate == null)
+                return Task.FromResult(false);
+
+            noteToUpdate.Title = updatedNote.Title;
+            noteToUpdate.Content = updatedNote.Content;
+            noteToUpdate.EventDate = updatedNote.EventDate;
+            noteToUpdate.NotificationDate = updatedNote.NotificationDate;
+            noteToUpdate.PriorityId = updatedNote.PriorityId;
+
+            _context.SaveChanges();
+            return Task.FromResult(true);
+        }
     }
 }

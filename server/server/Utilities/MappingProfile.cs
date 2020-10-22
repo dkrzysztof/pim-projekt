@@ -22,6 +22,7 @@ namespace server.Utilities
         {
             CreateMap<Note, NoteForGetAllNotesResponse>();
             CreateMap<AddNewNoteRequest, Note>();
+            CreateMap<UpdateNoteRequest, Note>();
         }
 
         void MapsForNote()
