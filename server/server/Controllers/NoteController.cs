@@ -53,10 +53,12 @@ namespace server.Controllers
         }
 
         [HttpDelete("{noteId}")]
-        public Task<IActionResult> DeleteNote()
+        public async Task<IActionResult> DeleteNote(int noteId)
         {
-            throw new NotImplementedException();
-        }
+            var result = await _noteService.DeleteById(noteId);
 
+            if (!result) return NotFound();
+            return Ok();
+        }
     }
 }

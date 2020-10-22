@@ -31,6 +31,17 @@ namespace server.Services
             return Task.FromResult(true);
         }
 
+        public Task<bool> DeleteById(int noteId)
+        {
+            Note note = _context.Set<Note>().Where(n => n.Id == noteId).FirstOrDefault();
+            if (note == null)
+                return Task.FromResult(false);
+
+            Delete(note);
+            _context.SaveChanges();
+            return Task.FromResult(true);
+        }
+
         public async Task<GetAllNotesResponse> GetUserNotes(int userId)
         {
             GetAllNotesResponse response = new GetAllNotesResponse();
