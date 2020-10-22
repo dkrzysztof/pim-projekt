@@ -14,5 +14,7 @@ namespace server.Database
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
         public DbSet<Note> Notes { get; set; }
         public DbSet<Priority> Priorities { get; set; }
+        public DbSet<RefreshToken> RefreshTokens { get; set; }
+
     }
 }

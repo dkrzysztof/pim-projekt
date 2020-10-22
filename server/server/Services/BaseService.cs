@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Identity;
 using server.Database;
+using server.Database.Models;
 using server.Services.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -14,10 +16,33 @@ namespace server.Services
 
         protected DatabaseContext _context;
 
+        protected UserManager<ApplicationUser> UserManager { get; }
+
+        /// <summary>
+        /// Username aktualnie zalogowanego użytkownika
+        /// </summary>
+        protected string CurrentlyLoggedUserName { get; }
+
+        /// <summary>
+        /// Aktualnie zalogowany użytkownik
+        /// </summary>
+        protected ApplicationUser CurrentlyLoggedUser { get; set; }
+
         public BaseService(IMapper mapper, DatabaseContext context)
         {
             _mapper = mapper;
             _context = context;
+            AssignCurrentlyLoggedUser();
+        }
+
+        private void AssignCurrentlyLoggedUser()
+        {
+            if (CurrentlyLoggedUserName == null)
+            {
+                CurrentlyLoggedUser = null;
+                return;
+            }
+            CurrentlyLoggedUser = UserManager.FindByNameAsync(CurrentlyLoggedUserName).Result;
         }
 
         public void Add(TEntity entity)
@@ -39,6 +64,7 @@ namespace server.Services
         {
             return _context.Set<TEntity>().ToList();
         }
+
 
     }
 }

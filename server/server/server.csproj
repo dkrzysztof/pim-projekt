@@ -31,10 +31,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Dtos\Account\Responses\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="bin\Debug\netcoreapp3.1\AutoMapper.dll" />
     <None Include="bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll" />
     <None Include="bin\Debug\netcoreapp3.1\Humanizer.dll" />

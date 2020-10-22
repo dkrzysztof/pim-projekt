@@ -15,6 +15,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using server.Database;
 using server.Database.Models;
+using server.Security;
+using server.Security.Interfaces;
 using server.Services;
 using server.Services.Interfaces;
 using server.Utilities;
@@ -48,6 +50,7 @@ namespace server
             // Dependency Injection
             services.AddTransient<IAccountService, AccountService>();
             services.AddTransient<INoteService, NoteService>();
+            services.AddTransient<IJwtGenerator, JwtGenerator>();
         
             services.AddControllers();
 
