@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using server.Database.Models;
+using server.Dtos.Note.Requests;
 using server.Dtos.Note.Response;
 using server.Services.Interfaces;
 
@@ -32,9 +34,13 @@ namespace server.Controllers
         }
 
         [HttpPost("create")]
-        public Task<IActionResult> CreateNote()
+        public async Task<IActionResult> CreateNote([FromBody] AddNewNoteRequest newNote)
         {
-            throw new NotImplementedException();
+            int userId = 1;
+            var result = await _noteService.AddNewNote(newNote, userId);
+
+            if (!result) return BadRequest();
+            return Ok();
         }
 
         [HttpPut("update")]

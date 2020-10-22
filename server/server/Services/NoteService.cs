@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using server.Database;
 using server.Database.Models;
+using server.Dtos.Note.Requests;
 using server.Dtos.Note.Response;
 using server.Services.Interfaces;
 using System;
@@ -16,6 +17,18 @@ namespace server.Services
         public NoteService(IMapper mapper, DatabaseContext context) : base(mapper, context)
         {
 
+        }
+
+        public Task<bool> AddNewNote(AddNewNoteRequest newNote, int userId)
+        {
+            Note note = _mapper.Map<AddNewNoteRequest, Note>(newNote);
+            ApplicationUser owner = _context.Set<ApplicationUser>().Where(u => u.Id == userId).FirstOrDefault();
+            note.Owner = owner;
+
+            _context.Set<Note>().Add(note);
+            _context.SaveChanges();
+
+            return Task.FromResult(true);
         }
 
         public async Task<GetAllNotesResponse> GetUserNotes(int userId)
