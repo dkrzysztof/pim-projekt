@@ -1,0 +1,146 @@
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\appsettings.Development.json
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\appsettings.json
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\server.exe
+D:\Stuff\Programowanie\pim-projekt\server\server\obj\Debug\netcoreapp3.1\server.csprojAssemblyReference.cache
+D:\Stuff\Programowanie\pim-projekt\server\server\obj\Debug\netcoreapp3.1\staticwebassets\server.StaticWebAssets.Manifest.cache
+D:\Stuff\Programowanie\pim-projekt\server\server\obj\Debug\netcoreapp3.1\staticwebassets\server.StaticWebAssets.xml
+D:\Stuff\Programowanie\pim-projekt\server\server\obj\Debug\netcoreapp3.1\server.AssemblyInfoInputs.cache
+D:\Stuff\Programowanie\pim-projekt\server\server\obj\Debug\netcoreapp3.1\server.AssemblyInfo.cs
+D:\Stuff\Programowanie\pim-projekt\server\server\obj\Debug\netcoreapp3.1\server.RazorTargetAssemblyInfo.cache
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\System.ComponentModel.Annotations.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\obj\Debug\netcoreapp3.1\server.csproj.CopyComplete
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Humanizer.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Microsoft.Win32.SystemEvents.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\System.Drawing.Common.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.pdb
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.pdb
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.pdb
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\server.deps.json
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\server.runtimeconfig.json
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\server.runtimeconfig.dev.json
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\server.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\server.pdb
+D:\Stuff\Programowanie\pim-projekt\server\server\obj\Debug\netcoreapp3.1\server.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\obj\Debug\netcoreapp3.1\server.pdb
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\obj\Debug\netcoreapp3.1\server.MvcApplicationPartsAssemblyInfo.cache
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\appsettings.Development.json
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\appsettings.json
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\server.exe
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\server.deps.json
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\server.runtimeconfig.json
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\server.runtimeconfig.dev.json
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\server.dll
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\server.pdb
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Humanizer.dll
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.dll
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\System.ComponentModel.Annotations.dll
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.pdb
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.pdb
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.pdb
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\obj\Debug\netcoreapp3.1\server.csprojAssemblyReference.cache
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\obj\Debug\netcoreapp3.1\server.AssemblyInfoInputs.cache
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\obj\Debug\netcoreapp3.1\server.AssemblyInfo.cs
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\obj\Debug\netcoreapp3.1\server.RazorTargetAssemblyInfo.cache
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\obj\Debug\netcoreapp3.1\server.csproj.CopyComplete
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\obj\Debug\netcoreapp3.1\staticwebassets\server.StaticWebAssets.Manifest.cache
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\obj\Debug\netcoreapp3.1\staticwebassets\server.StaticWebAssets.xml
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\obj\Debug\netcoreapp3.1\server.dll
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\obj\Debug\netcoreapp3.1\server.pdb
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\obj\Debug\netcoreapp3.1\server.genruntimeconfig.cache
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\AutoMapper.dll
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\obj\Debug\netcoreapp3.1\server.csproj.CoreCompileInputs.cache
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\obj\Debug\netcoreapp3.1\server.MvcApplicationPartsAssemblyInfo.cs
+E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt\server\server\obj\Debug\netcoreapp3.1\server.MvcApplicationPartsAssemblyInfo.cache

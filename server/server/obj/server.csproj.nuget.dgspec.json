@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Workspace\\PIM\\pim-projekt\\server\\server\\server\\server.csproj": {}
+    "E:\\Jakub\\Documents\\Programowanie\\C#\\ASP.NET Core\\Planday\\pim-projekt\\server\\server\\server.csproj": {}
   },
   "projects": {
-    "D:\\Workspace\\PIM\\pim-projekt\\server\\server\\server\\server.csproj": {
+    "E:\\Jakub\\Documents\\Programowanie\\C#\\ASP.NET Core\\Planday\\pim-projekt\\server\\server\\server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Workspace\\PIM\\pim-projekt\\server\\server\\server\\server.csproj",
+        "projectUniqueName": "E:\\Jakub\\Documents\\Programowanie\\C#\\ASP.NET Core\\Planday\\pim-projekt\\server\\server\\server.csproj",
         "projectName": "server",
-        "projectPath": "D:\\Workspace\\PIM\\pim-projekt\\server\\server\\server\\server.csproj",
-        "packagesPath": "C:\\Users\\krzys\\.nuget\\packages\\",
-        "outputPath": "D:\\Workspace\\PIM\\pim-projekt\\server\\server\\server\\obj\\",
+        "projectPath": "E:\\Jakub\\Documents\\Programowanie\\C#\\ASP.NET Core\\Planday\\pim-projekt\\server\\server\\server.csproj",
+        "packagesPath": "C:\\Users\\Jakub\\.nuget\\packages\\",
+        "outputPath": "E:\\Jakub\\Documents\\Programowanie\\C#\\ASP.NET Core\\Planday\\pim-projekt\\server\\server\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\krzys\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Jakub\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -37,6 +40,44 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[10.1.0, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[8.1.0, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.9, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.0-rc.2.20475.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.0-rc.2.20475.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.0-rc.2.20475.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.0-rc.2.20475.6, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[5.5.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -55,7 +96,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
         }
       }
     }
