@@ -18,36 +18,43 @@ namespace server.Services
     public class AccountService : BaseService<ApplicationUser>, IAccountService
     {
         private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly UserManager<ApplicationUser> _userManager;
         private readonly IJwtGenerator _jwtGenerator;
 
-        public AccountService(IMapper mapper, DatabaseContext context, IJwtGenerator jwtGenerator, SignInManager<ApplicationUser> signInManager) : base(mapper, context)
+        public AccountService(IMapper mapper, DatabaseContext context, IUserAccessor userAccessor, IJwtGenerator jwtGenerator, UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager) : base(mapper, context, userAccessor)
         {
             _jwtGenerator = jwtGenerator;
             _signInManager = signInManager;
+            _userManager = userManager;
         }
 
-        public Task<bool> DeleteUser()
+        public async Task<bool> DeleteUser()
         {
-            throw new NotImplementedException();
+            var userId = CurrentlyLoggedUser.Id;
+
+            var user = await _context.ApplicationUsers.SingleOrDefaultAsync(u => u.Id == userId);
+
+            if(user != null)
+            {
+                _context.ApplicationUsers.Remove(user);
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            return false;
         }
 
         public async Task<LoginUserResponse> LoginAsync(LoginUserRequest request)
         {
-            var user = await UserManager.FindByEmailAsync(request.Email);
+            var user = await _context.ApplicationUsers.SingleOrDefaultAsync(u => u.Email == request.Email);
 
             if (user == null)
-                //throw new RestException(HttpStatusCode.Unauthorized);
+                return null;
 
-            //if (user.IsDeleted)
-            //{
-            //    //ErrorResultToReturn = new ErrorResult(Errors.AuthErrors.YourAccountWasDeleted);
-            //    //throw new RestException(HttpStatusCode.BadRequest, ErrorResultToReturn);
-            //}
 
             var result = await _signInManager.CheckPasswordSignInAsync(user, request.Password, false);
 
             if (!result.Succeeded)
-                //throw new RestException(HttpStatusCode.Unauthorized);
+                return null;
 
             var generatedToken = await _jwtGenerator.CreateTokenAsync(user);
 
@@ -57,34 +64,31 @@ namespace server.Services
                 RefreshToken = generatedToken.RefreshToken,
             };
 
-            return null;
+            return responseDto;
         }
 
-        public Task<bool> Logout()
-        {
-            throw new NotImplementedException();
-        }
+        //public Task<bool> Logout()
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         public async Task<RefreshTokenResponse> RefreshTokenAsync(string accessToken, string refreshToken)
         {
             if (string.IsNullOrWhiteSpace(accessToken))
             {
-                //ErrorResultToReturn = new ErrorResult("Pusty access token");
-                //throw new RestException(HttpStatusCode.BadRequest, ErrorResultToReturn);
+                return null;
             }
 
             if (string.IsNullOrWhiteSpace(refreshToken))
             {
-                //ErrorResultToReturn = new ErrorResult("Pusty refresh token");
-                //throw new RestException(HttpStatusCode.BadRequest, ErrorResultToReturn);
+                return null;
             }
 
             var validatedToken = _jwtGenerator.GetPrincipalFromToken(accessToken);
 
             if (validatedToken == null)
             {
-                //ErrorResultToReturn = new ErrorResult("Nieprawidłowy token");
-                //throw new RestException(HttpStatusCode.BadRequest, ErrorResultToReturn);
+                return null;
             }
 
             var storedRefreshToken =
@@ -94,38 +98,73 @@ namespace server.Services
 
             if (validationResult.Any())
             {
-                //ErrorResultToReturn = new ErrorResult(Errors.AuthErrors.AnErrorOccuredWhileAuthenticating, validationResult.ToArray());
-                //throw new RestException(HttpStatusCode.BadRequest, ErrorResultToReturn);
+                return null;
             }
 
             storedRefreshToken.Used = true;
             _context.RefreshTokens.Update(storedRefreshToken);
 
             await _context.SaveChangesAsync();
-            //await SaveChangesAsync(new[] { "Wystąpił bład podczas aktualizowania tokena" });
 
             var user = await UserManager.FindByIdAsync(_jwtGenerator.GetUserIdFromToken(validatedToken));
 
             if (user == null)
             {
-                //ErrorResultToReturn = new ErrorResult(Errors.AccountErrors.UserNotFound);
-                //throw new RestException(HttpStatusCode.BadRequest, ErrorResultToReturn);
+                return null;
             }
 
             var tokens = await _jwtGenerator.CreateTokenAsync(user);
 
-            return null;
-            //return new ServiceResponse<RefreshTokenResponse>(HttpStatusCode.OK, new RefreshTokenResponse { RefreshToken = tokens.RefreshToken, Token = tokens.Token });
+            return new RefreshTokenResponse { RefreshToken = tokens.RefreshToken, Token = tokens.Token };
         }
 
         public async Task<RegisterUserResponse> RegisterUserAsync(RegisterUserRequest request)
         {
-            throw new NotImplementedException();
+            var userToRegister = new ApplicationUser()
+            {
+                LastName = request.LastName,
+                FirstName = request.FirstName,
+                Email = request.Email,
+                UserName = request.Email
+            };
+
+            var emailTaken = await _userManager.FindByEmailAsync(request.Email) != null;
+
+            var accountCreationResult = await _userManager.CreateAsync(userToRegister, request.Password);
+            if (!accountCreationResult.Succeeded)
+                return null;
+
+
+            var token = await _jwtGenerator.CreateTokenAsync(userToRegister);
+            var response = new RegisterUserResponse
+            {
+                Token = token.Token,
+                RefreshToken = token.RefreshToken
+            };
+
+
+            return response;
         }
 
-        public Task<bool> UpdateUser()
+        public async Task<bool> UpdateUser(UpdateUserRequest request)
         {
-            throw new NotImplementedException();
+            var userId = CurrentlyLoggedUser.Id;
+
+            try
+            {
+                var user = await _context.ApplicationUsers.SingleOrDefaultAsync(u => u.Id == userId);
+
+                user.FirstName = request.FirstName;
+                user.LastName = request.LastName;
+
+                 await _context.SaveChangesAsync();
+                return true;
+            }
+            catch(Exception)
+            {
+                return false;
+            }
+
         }
     }
 }

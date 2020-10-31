@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -59,22 +60,25 @@ namespace server.Controllers
             return Ok(response);
         }
 
-        [HttpGet("logout")]
-        public Task<IActionResult> Logout()
-        {
-            throw new NotImplementedException();
-        }
-
+        //[HttpGet("logout")]
+        //public Task<IActionResult> Logout()
+        //{
+        //    throw new NotImplementedException();
+        //}
+        [Authorize]
         [HttpPut("update")]
-        public Task<IActionResult> UpdateUser()
+        public async Task<IActionResult> UpdateUser([FromBody] UpdateUserRequest dto) 
         {
-            throw new NotImplementedException();
+            var response = await _accountService.UpdateUser(dto);
+            return Ok(response);
         }
 
+        [Authorize]
         [HttpDelete("delete-account")]
-        public Task<IActionResult> DeleteAccount()
+        public async Task<IActionResult> DeleteAccount()
         {
-            throw new NotImplementedException();
+            var response = await _accountService.DeleteUser();
+            return Ok(response);
         }
 
         private void AssignTokenCookiesToResponse(string accessToken, string refreshToken)

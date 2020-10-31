@@ -16,9 +16,9 @@ namespace server.Services.Interfaces
 
         Task<RefreshTokenResponse> RefreshTokenAsync(string accessToken, string refreshToken);
 
-        Task<bool> Logout();
+        //Task<bool> Logout();
 
-        Task<bool> UpdateUser();
+        Task<bool> UpdateUser(UpdateUserRequest request);
 
         Task<bool> DeleteUser( );
     }

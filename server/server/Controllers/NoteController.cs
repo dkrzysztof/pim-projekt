@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using server.Database.Models;
@@ -24,11 +25,11 @@ namespace server.Controllers
             _noteService = noteService;
         }
 
+        [Authorize]
         [HttpGet]
         public async Task<IActionResult> GetNotes()
         {
-            int userId = 1;
-            var response = await _noteService.GetUserNotes(userId);
+            var response = await _noteService.GetUserNotes();
 
             return Ok(response);
         }
@@ -36,8 +37,7 @@ namespace server.Controllers
         [HttpPost("create")]
         public async Task<IActionResult> CreateNote([FromBody] AddNewNoteRequest newNote)
         {
-            int userId = 1;
-            var result = await _noteService.AddNewNote(newNote, userId);
+            var result = await _noteService.AddNewNote(newNote);
 
             if (!result) return BadRequest();
             return Ok();

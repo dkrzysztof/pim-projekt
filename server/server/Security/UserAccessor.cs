@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using server.Security.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace server.Security
 {
-    public class UserAccessor
+    public class UserAccessor : IUserAccessor
     {
         private readonly IHttpContextAccessor _httpContextAccessor;
 
