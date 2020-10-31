@@ -200,16 +200,15 @@ namespace server.Migrations
                     Content = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     NotificationDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     EventDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    UserId = table.Column<int>(type: "int", nullable: false),
-                    UserId1 = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     PriorityId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Notes", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Notes_AspNetUsers_UserId1",
-                        column: x => x.UserId1,
+                        name: "FK_Notes_AspNetUsers_UserId",
+                        column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -266,9 +265,9 @@ namespace server.Migrations
                 column: "PriorityId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Notes_UserId1",
+                name: "IX_Notes_UserId",
                 table: "Notes",
-                column: "UserId1");
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_RefreshTokens_UserId",

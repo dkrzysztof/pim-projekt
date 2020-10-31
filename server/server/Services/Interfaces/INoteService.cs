@@ -12,5 +12,9 @@ namespace server.Services.Interfaces
     {
         Task<GetAllNotesResponse> GetUserNotes();
         Task<bool> AddNewNote(AddNewNoteRequest newNote);
+
+        Task<bool> UpdateNote(UpdateNoteRequest request);
+
+        Task<bool> DeleteNote(int noteId);
     }
 }

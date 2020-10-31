@@ -10,7 +10,7 @@ using server.Database;
 namespace server.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20201030203322_initial")]
+    [Migration("20201031155229_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -246,10 +246,7 @@ namespace server.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UserId1")
+                    b.Property<string>("UserId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
@@ -257,7 +254,7 @@ namespace server.Migrations
 
                     b.HasIndex("PriorityId");
 
-                    b.HasIndex("UserId1");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Notes");
                 });
@@ -370,7 +367,7 @@ namespace server.Migrations
 
                     b.HasOne("server.Database.Models.ApplicationUser", "User")
                         .WithMany("Notes")
-                        .HasForeignKey("UserId1")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

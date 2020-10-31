@@ -34,6 +34,26 @@ namespace server.Services
             return Task.FromResult(true);
         }
 
+        public async Task<bool> DeleteNote(int noteId)
+        {
+            var userId = CurrentlyLoggedUser.Id;
+
+            try
+            {
+                var note = await _context.Set<Note>().Where(n => n.Id == noteId && n.UserId == userId).SingleOrDefaultAsync();
+
+                _context.Set<Note>().Remove(note);
+                await _context.SaveChangesAsync();
+
+                return true;
+            }
+            catch(Exception)
+            {
+                return false;
+            }
+
+        }
+
         public async Task<GetAllNotesResponse> GetUserNotes()
         {
             var userId = CurrentlyLoggedUser.Id;
@@ -51,6 +71,30 @@ namespace server.Services
             }
 
             return response;
+        }
+
+        public async Task<bool> UpdateNote(UpdateNoteRequest request)
+        {
+            var userId = CurrentlyLoggedUser.Id;
+
+            try
+            {
+                var note = await _context.Set<Note>().Where(n => n.Id == request.NoteId && n.UserId == userId).SingleOrDefaultAsync();
+
+                note.Title = request.Title;
+                note.Content = request.Content;
+                note.PriorityId = request.PriorityId;
+                note.EventDate = request.EventDate;
+                note.NotificationDate = request.NotificationDate;
+
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            catch(Exception ex)
+            {
+                return false;
+            }
+
         }
     }
 }

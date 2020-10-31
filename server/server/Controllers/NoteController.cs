@@ -34,7 +34,8 @@ namespace server.Controllers
             return Ok(response);
         }
 
-        [HttpPost("create")]
+        [Authorize]
+        [HttpPost]
         public async Task<IActionResult> CreateNote([FromBody] AddNewNoteRequest newNote)
         {
             var result = await _noteService.AddNewNote(newNote);
@@ -43,16 +44,22 @@ namespace server.Controllers
             return Ok();
         }
 
-        [HttpPut("update")]
-        public Task<IActionResult> UpdateNote()
+        [Authorize]
+        [HttpPut]
+        public async Task<IActionResult> UpdateNote([FromBody] UpdateNoteRequest request)
         {
-            throw new NotImplementedException();
+            var response = await _noteService.UpdateNote(request);
+            if (!response) return BadRequest();
+            return Ok();
         }
 
+        [Authorize]
         [HttpDelete("{noteId}")]
-        public Task<IActionResult> DeleteNote()
+        public async Task<IActionResult> DeleteNote([FromRoute]int noteId)
         {
-            throw new NotImplementedException();
+            var response = await _noteService.DeleteNote(noteId);
+            if (!response) return BadRequest();
+            return Ok();
         }
 
     }

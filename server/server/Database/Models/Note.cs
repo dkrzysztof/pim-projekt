@@ -14,7 +14,7 @@ namespace server.Database.Models
         public DateTime? NotificationDate { get; set; }
         public DateTime? EventDate { get; set; }
 
-        public int UserId { get; set; }
+        public string UserId { get; set; }
         [Required]
         public virtual ApplicationUser User { get; set; }
 
