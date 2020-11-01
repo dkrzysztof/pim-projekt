@@ -10,6 +10,7 @@ namespace server.Services.Interfaces
 {
     public interface IAccountService : IBaseService<ApplicationUser>
     {
+        Task<GetAccountDetailsResponse> GetAccountDetailsAsync();
         Task<LoginUserResponse> LoginAsync(LoginUserRequest request);
 
         Task<RegisterUserResponse> RegisterUserAsync(RegisterUserRequest request);

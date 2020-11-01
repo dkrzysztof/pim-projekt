@@ -28,6 +28,13 @@ namespace server.Controllers
         }
 
 
+        [HttpGet("details")]
+        public async Task<IActionResult> GetAccountDetails()
+        {
+            var response = await _accountService.GetAccountDetailsAsync();
+            return Ok(response);
+        }
+
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginUserRequest dto)
         {

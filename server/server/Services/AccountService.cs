@@ -36,11 +36,29 @@ namespace server.Services
 
             if(user != null)
             {
+                var refreshTokens = _context.RefreshTokens.Where(r => r.UserId == userId);
+                _context.RefreshTokens.RemoveRange(refreshTokens);
                 _context.ApplicationUsers.Remove(user);
                 await _context.SaveChangesAsync();
                 return true;
             }
             return false;
+        }
+
+        public async Task<GetAccountDetailsResponse> GetAccountDetailsAsync()
+        {
+            var userId = CurrentlyLoggedUser.Id;
+
+            try
+            {
+                var user = await _context.ApplicationUsers.SingleOrDefaultAsync(u => u.Id == userId);
+                var response = _mapper.Map<ApplicationUser, GetAccountDetailsResponse>(user);
+                return response;
+            }
+            catch(Exception)
+            {
+                return null;
+            }
         }
 
         public async Task<LoginUserResponse> LoginAsync(LoginUserRequest request)

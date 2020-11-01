@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Zi2y6rN0wcULJSh2ARFg4GsWwuW8Y7HSOmUqfoUBT8TQVHOV2+x5LUkpu3ZsoTDVqQaFwDi7V3PBrXRktWV5hQ==",
+  "dgSpecHash": "x6svynW3qkMG0K/Wz3Hd03pPCzm673BfCyPJ5/6PCiOFHDJqpC7K1uvZXyIyVEMff7DbYL8Ppv+c06EQu2hLoA==",
   "success": true,
-  "projectFilePath": "E:\\Jakub\\Documents\\Programowanie\\C#\\ASP.NET Core\\Planday\\pim-projekt\\server\\server\\server.csproj",
+  "projectFilePath": "E:\\Jakub\\Documents\\Programowanie\\C#\\ASP.NET Core\\Planday\\pim-projekt-1\\pim-projekt\\server\\server\\server.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Jakub\\.nuget\\packages\\aspnet.security.oauth.validation\\2.0.0\\aspnet.security.oauth.validation.2.0.0.nupkg.sha512",
     "C:\\Users\\Jakub\\.nuget\\packages\\automapper\\10.1.0\\automapper.10.1.0.nupkg.sha512",
