@@ -10,9 +10,11 @@ namespace server.Services.Interfaces
 {
     public interface INoteService : IBaseService<Note>
     {
-        Task<GetAllNotesResponse> GetUserNotes(int userId);
-        Task<bool> AddNewNote(AddNewNoteRequest newNote, int userId);
-        Task<bool> UpdateExistingNote(UpdateNoteRequest updatedNote);
-        Task<bool> DeleteById(int noteId);
+        Task<GetAllNotesResponse> GetUserNotes();
+        Task<bool> AddNewNote(AddNewNoteRequest newNote);
+
+        Task<bool> UpdateNote(UpdateNoteRequest request);
+
+        Task<bool> DeleteNote(int noteId);
     }
 }

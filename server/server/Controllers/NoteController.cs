@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using server.Database.Models;
@@ -24,38 +25,42 @@ namespace server.Controllers
             _noteService = noteService;
         }
 
+        [Authorize]
         [HttpGet]
         public async Task<IActionResult> GetNotes()
         {
-            int userId = 1;
-            var response = await _noteService.GetUserNotes(userId);
+            var response = await _noteService.GetUserNotes();
 
             return Ok(response);
         }
 
-        [HttpPost("create")]
+        [Authorize]
+        [HttpPost]
         public async Task<IActionResult> CreateNote([FromBody] AddNewNoteRequest newNote)
         {
-            int userId = 1;
-            var result = await _noteService.AddNewNote(newNote, userId);
+            var result = await _noteService.AddNewNote(newNote);
 
             if (!result) return BadRequest();
             return Ok();
         }
 
-        [HttpPut("update")]
-        public async Task<IActionResult> UpdateNote([FromBody] UpdateNoteRequest updatedNote)
+        [Authorize]
+        [HttpPut]
+        public async Task<IActionResult> UpdateNote([FromBody] UpdateNoteRequest request)
         {
-            var result = await _noteService.UpdateExistingNote(updatedNote);
-
-            if (!result) return NotFound();
+            var response = await _noteService.UpdateNote(request);
+            if (!response) return BadRequest();
             return Ok();
         }
 
+        [Authorize]
         [HttpDelete("{noteId}")]
-        public async Task<IActionResult> DeleteNote(int noteId)
+        public async Task<IActionResult> DeleteNote([FromRoute]int noteId)
         {
-            var result = await _noteService.DeleteById(noteId);
+            var response = await _noteService.DeleteNote(noteId);
+            if (!response) return BadRequest();
+            return Ok();
+        }
 
             if (!result) return NotFound();
             return Ok();

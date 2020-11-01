@@ -7,7 +7,8 @@ namespace server.Dtos.Note.Requests
 {
     public class UpdateNoteRequest
     {
-        public int Id { get; set; }
+        public int NoteId { get; set; }
+
         public string Title { get; set; }
         public string Content { get; set; }
         public int PriorityId { get; set; }
