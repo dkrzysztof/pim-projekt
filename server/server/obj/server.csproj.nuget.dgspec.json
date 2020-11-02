@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Workspace\\react_native\\PIM\\server\\server\\server.csproj": {}
+    "E:\\Jakub\\Documents\\Programowanie\\C#\\ASP.NET Core\\Planday\\pim-projekt-1\\pim-projekt\\server\\server\\server.csproj": {}
   },
   "projects": {
-    "D:\\Workspace\\react_native\\PIM\\server\\server\\server.csproj": {
+    "E:\\Jakub\\Documents\\Programowanie\\C#\\ASP.NET Core\\Planday\\pim-projekt-1\\pim-projekt\\server\\server\\server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Workspace\\react_native\\PIM\\server\\server\\server.csproj",
+        "projectUniqueName": "E:\\Jakub\\Documents\\Programowanie\\C#\\ASP.NET Core\\Planday\\pim-projekt-1\\pim-projekt\\server\\server\\server.csproj",
         "projectName": "server",
-        "projectPath": "D:\\Workspace\\react_native\\PIM\\server\\server\\server.csproj",
-        "packagesPath": "C:\\Users\\Krzysztof\\.nuget\\packages\\",
-        "outputPath": "D:\\Workspace\\react_native\\PIM\\server\\server\\obj\\",
+        "projectPath": "E:\\Jakub\\Documents\\Programowanie\\C#\\ASP.NET Core\\Planday\\pim-projekt-1\\pim-projekt\\server\\server\\server.csproj",
+        "packagesPath": "C:\\Users\\Jakub\\.nuget\\packages\\",
+        "outputPath": "E:\\Jakub\\Documents\\Programowanie\\C#\\ASP.NET Core\\Planday\\pim-projekt-1\\pim-projekt\\server\\server\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Krzysztof\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Jakub\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -101,7 +104,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
         }
       }
     }

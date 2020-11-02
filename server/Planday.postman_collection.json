@@ -1,0 +1,323 @@
+{
+	"info": {
+		"_postman_id": "f5a0894b-d9f2-4037-bcdb-148b107a4c4d",
+		"name": "Planday",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Account",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"FirstName\": \"Jan\",\r\n    \"LastName\": \"Kowalski\",\r\n    \"Email\": \"kowalski@jan.com\",\r\n    \"Password\": \"Pass123!\",\r\n    \"ConfirmPassword\": \"Pass123!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44346/api/Account/Register",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44346",
+							"path": [
+								"api",
+								"Account",
+								"Register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Email\": \"kowalski@jan.com\",\r\n    \"Password\": \"Pass123!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:53604/api/Account/Login",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "53604",
+							"path": [
+								"api",
+								"Account",
+								"Login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrb3dhbHNraUBqYW4uY29tIiwianRpIjoiNWYzYzU3ZGMtNmVlYy00M2FmLWJiYmEtNjliYzNlNmJkYzhkIiwiZW1haWwiOiJrb3dhbHNraUBqYW4uY29tIiwidXNlcklkIjoiNTE1NGM4MmMtNzI5OS00ZDE1LWIzY2EtOWNmMjJhOWZjYjRkIiwibmJmIjoxNjA0MjM5NDE2LCJleHAiOjE2MDQyNDA2MTYsImlhdCI6MTYwNDIzOTQxNiwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzMDMiLCJhdWQiOiJodHRwczovL2xvY2FsaG9zdDo0NDMwMyJ9.BqLHXEjHcveS8O0sV18yJSMPV0vmkOCkFE-x_6qE2r_aJgzm-kYUsFYw4mWPf-BDr8yVjIY_cdhjTgon1TJZWA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"FirstName\": \"Edited name\",\r\n    \"LastName\": \"Edited last name\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44346/api/Account/update",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44346",
+							"path": [
+								"api",
+								"Account",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrb3dhbHNraUBqYW4uY29tIiwianRpIjoiZTg3ZjA0ZWYtZWNhOS00ZDQyLTlkYmItYWQ5NDFjYjgyYjQ2IiwiZW1haWwiOiJrb3dhbHNraUBqYW4uY29tIiwidXNlcklkIjoiNTE1NGM4MmMtNzI5OS00ZDE1LWIzY2EtOWNmMjJhOWZjYjRkIiwibmJmIjoxNjA0MjQwMDYzLCJleHAiOjE2MDQyNDEyNjMsImlhdCI6MTYwNDI0MDA2MywiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzMDMiLCJhdWQiOiJodHRwczovL2xvY2FsaG9zdDo0NDMwMyJ9.JfLqLX1rztF34GWSticsHI0vyNntEGL7vDmh53Jqyp52tXY_2WN9KmmQlnwdgxZ8RkuaHAulgQQ_H9oAEamX2g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44346/api/Account/delete-account",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44346",
+							"path": [
+								"api",
+								"Account",
+								"delete-account"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Account Details",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrb3dhbHNraUBqYW4uY29tIiwianRpIjoiZWE5NTM4MDAtZWUxMS00ZGEzLTk4YTEtOGUxNzIzOTYyN2NkIiwiZW1haWwiOiJrb3dhbHNraUBqYW4uY29tIiwidXNlcklkIjoiODE5ZWI3YjMtMzhmYS00MmRkLTk2ZmUtNWM4OWU0ZGY5MjE3IiwibmJmIjoxNjA0MjQxMTgwLCJleHAiOjE2MDQyNDIzODAsImlhdCI6MTYwNDI0MTE4MCwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzMDMiLCJhdWQiOiJodHRwczovL2xvY2FsaG9zdDo0NDMwMyJ9.WlQomBN26tQxYmV_6X65G2vEKbLD32sJwmws8GAXekINpKniAATLPM_3_h7oSOsOlKmhaT3AsoCLwkNtUbMvaA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44346/api/Account/details",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44346",
+							"path": [
+								"api",
+								"Account",
+								"details"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Note",
+			"item": [
+				{
+					"name": "Get Notes",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrb3dhbHNraUBqYW4uY29tIiwianRpIjoiOWJiMWM2OTMtNTI0MS00YjE1LTkxZWQtMzIyN2ZhM2FmOTBlIiwiZW1haWwiOiJrb3dhbHNraUBqYW4uY29tIiwidXNlcklkIjoiNTE1NGM4MmMtNzI5OS00ZDE1LWIzY2EtOWNmMjJhOWZjYjRkIiwibmJmIjoxNjA0MTYyNTMyLCJleHAiOjE2MDQxNjM3MzIsImlhdCI6MTYwNDE2MjUzMiwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzMDMiLCJhdWQiOiJodHRwczovL2xvY2FsaG9zdDo0NDMwMyJ9.S_bTjmcgHrQFs30XKDi0m2Fd_gX_Ncj4tfe0BYewNL6W5KOmw-7iiq709Vtm9mHZYq-XMCj1reL2UwDK4eaIWw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44346/api/Note",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44346",
+							"path": [
+								"api",
+								"Note"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Note",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrb3dhbHNraUBqYW4uY29tIiwianRpIjoiOWJiMWM2OTMtNTI0MS00YjE1LTkxZWQtMzIyN2ZhM2FmOTBlIiwiZW1haWwiOiJrb3dhbHNraUBqYW4uY29tIiwidXNlcklkIjoiNTE1NGM4MmMtNzI5OS00ZDE1LWIzY2EtOWNmMjJhOWZjYjRkIiwibmJmIjoxNjA0MTYyNTMyLCJleHAiOjE2MDQxNjM3MzIsImlhdCI6MTYwNDE2MjUzMiwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzMDMiLCJhdWQiOiJodHRwczovL2xvY2FsaG9zdDo0NDMwMyJ9.S_bTjmcgHrQFs30XKDi0m2Fd_gX_Ncj4tfe0BYewNL6W5KOmw-7iiq709Vtm9mHZYq-XMCj1reL2UwDK4eaIWw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Title\": \"Pierwsza testowa notatka\",\r\n    \"Content\": \"Lorem ipsum\",\r\n    \"PriorityId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44346/api/Note",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44346",
+							"path": [
+								"api",
+								"Note"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Note",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrb3dhbHNraUBqYW4uY29tIiwianRpIjoiOWJiMWM2OTMtNTI0MS00YjE1LTkxZWQtMzIyN2ZhM2FmOTBlIiwiZW1haWwiOiJrb3dhbHNraUBqYW4uY29tIiwidXNlcklkIjoiNTE1NGM4MmMtNzI5OS00ZDE1LWIzY2EtOWNmMjJhOWZjYjRkIiwibmJmIjoxNjA0MTYyNTMyLCJleHAiOjE2MDQxNjM3MzIsImlhdCI6MTYwNDE2MjUzMiwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzMDMiLCJhdWQiOiJodHRwczovL2xvY2FsaG9zdDo0NDMwMyJ9.S_bTjmcgHrQFs30XKDi0m2Fd_gX_Ncj4tfe0BYewNL6W5KOmw-7iiq709Vtm9mHZYq-XMCj1reL2UwDK4eaIWw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"NoteId\": 2,\r\n    \"Title\": \"Notatka Edytowana\",\r\n    \"Content\": \"Edytowany content\",\r\n    \"PriorityId\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44346/api/Note",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44346",
+							"path": [
+								"api",
+								"Note"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Note",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrb3dhbHNraUBqYW4uY29tIiwianRpIjoiOWJiMWM2OTMtNTI0MS00YjE1LTkxZWQtMzIyN2ZhM2FmOTBlIiwiZW1haWwiOiJrb3dhbHNraUBqYW4uY29tIiwidXNlcklkIjoiNTE1NGM4MmMtNzI5OS00ZDE1LWIzY2EtOWNmMjJhOWZjYjRkIiwibmJmIjoxNjA0MTYyNTMyLCJleHAiOjE2MDQxNjM3MzIsImlhdCI6MTYwNDE2MjUzMiwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzMDMiLCJhdWQiOiJodHRwczovL2xvY2FsaG9zdDo0NDMwMyJ9.S_bTjmcgHrQFs30XKDi0m2Fd_gX_Ncj4tfe0BYewNL6W5KOmw-7iiq709Vtm9mHZYq-XMCj1reL2UwDK4eaIWw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44346/api/Note/2",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44346",
+							"path": [
+								"api",
+								"Note",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using server.Database.Models;
 using server.Dtos.Account.Requests;
+using server.Dtos.Account.Responses;
 using server.Dtos.Note.Requests;
 using server.Dtos.Note.Response;
 using System;
@@ -14,20 +15,10 @@ namespace server.Utilities
     {
         public MappingProfile()
         {
-            MapsForAccount();
-            MapsForNote();
-        }
-
-        void MapsForAccount()
-        {
             CreateMap<Note, NoteForGetAllNotesResponse>();
             CreateMap<AddNewNoteRequest, Note>();
-            CreateMap<UpdateNoteRequest, Note>();
+            CreateMap<ApplicationUser, GetAccountDetailsResponse>();
         }
 
-        void MapsForNote()
-        {
-
-        }
     }
 }
