@@ -8,13 +8,11 @@ import { createStackNavigator } from "@react-navigation/stack";
 
 import PublicPage from "./src/pages/PublicPage/PublicPage";
 import HomePage from "./src/pages/Auth/HomePage/HomePage";
-import { RoutesList } from "./src/Routes";
+import Routes from "./src/Routes";
 
 interface AppState {
   isReady: boolean;
 }
-
-const Stack = createStackNavigator<RoutesList>();
 
 export default class App extends React.Component<{}, AppState> {
   constructor(props: any) {
@@ -45,13 +43,7 @@ export default class App extends React.Component<{}, AppState> {
 
     return (
       <NavigationContainer>
-        <Stack.Navigator
-          initialRouteName="Public"
-          screenOptions={{ headerShown: false }}
-        >
-          <Stack.Screen name="Public" component={PublicPage} />
-          <Stack.Screen name="Home" component={HomePage} />
-        </Stack.Navigator>
+        <Routes />
       </NavigationContainer>
     );
   }

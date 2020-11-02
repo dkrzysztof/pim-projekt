@@ -55,15 +55,12 @@ namespace server.Controllers
 
         [Authorize]
         [HttpDelete("{noteId}")]
-        public async Task<IActionResult> DeleteNote([FromRoute]int noteId)
+        public async Task<IActionResult> DeleteNote([FromRoute] int noteId)
         {
             var response = await _noteService.DeleteNote(noteId);
             if (!response) return BadRequest();
             return Ok();
         }
 
-            if (!result) return NotFound();
-            return Ok();
-        }
     }
 }
