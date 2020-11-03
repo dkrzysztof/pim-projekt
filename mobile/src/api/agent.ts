@@ -1,61 +1,68 @@
 import axios, { AxiosResponse, AxiosRequestConfig, AxiosError } from "axios";
+import store from "../state/store";
+import AuthApi from "./auth/authApi";
+import AppConfig from "../../app.config";
 
-const baseURL = `http://localhost:5000/`;
+const baseURL = `${AppConfig.hostname}/api`;
 axios.defaults.baseURL = baseURL;
 
 axios.interceptors.request.use(
-  (config) => {
-    // const state = store.getState();
-    if (state.session.info && state.session.info.token) {
-      config.headers.Authorization = `Bearer ${state.session.info.token}`;
-    }
+	(config) => {
+		const state = store.getState();
+		if (state.session.info && state.session.info.token) {
+			config.headers.Authorization = `Bearer ${state.session.info.token}`;
+		}
 
-    return config;
-  },
-  (error) => {
-    console.log(error);
-    return Promise.reject(error);
-  }
+		return config;
+	},
+	(error) => {
+		console.log(error);
+		return Promise.reject(error);
+	}
 );
 
 interface DetailedError {
-  description: string;
-  descriptionFormatter: string;
-  errorCode: string;
-  errorParameters: string[];
-  isArchived: boolean;
+	description: string;
+	descriptionFormatter: string;
+	errorCode: string;
+	errorParameters: string[];
+	isArchived: boolean;
 }
 
 axios.interceptors.response.use(undefined, (error: AxiosError) => {
-  const { status, data } = error.response || {};
-  throw error.response;
+	const { message, code } = error || {};
+
+	console.error(code, message);
+	throw message;
 });
 
 const responseBodyAxios = (response: AxiosResponse) => {
-  if (
-    response.data &&
-    typeof response.data === "object" &&
-    "data" in response.data &&
-    Object.keys(response.data).length === 1
-  ) {
-    return response.data.data;
-  }
+	if (
+		response.data &&
+		typeof response.data === "object" &&
+		"data" in response.data &&
+		Object.keys(response.data).length === 1
+	) {
+		return response.data.data;
+	}
 
-  return response.data;
+	return response.data;
 };
 
 export const requests = {
-  get: (url: string, params?: {}) =>
-    axios
-      .get(url, {
-        params,
-      })
-      .then(responseBodyAxios),
-  post: (url: string, body: {}, config?: AxiosRequestConfig | undefined) =>
-    axios.post(url, body, config).then(responseBodyAxios),
-  put: (url: string, body: {}, config?: AxiosRequestConfig | undefined) =>
-    axios.put(url, body, config).then(responseBodyAxios),
-  delete: (url: string) => axios.delete(url).then(responseBodyAxios),
+	get: (url: string, params?: {}) =>
+		axios
+			.get(url, {
+				params,
+			})
+			.then(responseBodyAxios),
+	post: (url: string, body: {}, config?: AxiosRequestConfig | undefined) =>
+		axios.post(url, body, config).then(responseBodyAxios),
+	put: (url: string, body: {}, config?: AxiosRequestConfig | undefined) =>
+		axios.put(url, body, config).then(responseBodyAxios),
+	delete: (url: string) => axios.delete(url).then(responseBodyAxios),
 };
 
-export default {};
+export default {
+	Auth: AuthApi,
+};

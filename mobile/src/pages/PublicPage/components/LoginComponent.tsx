@@ -1,6 +1,6 @@
-import { StackNavigationProp } from '@react-navigation/stack';
-import * as React from 'react';
-import { useState } from 'react';
+import { StackNavigationProp } from "@react-navigation/stack";
+import * as React from "react";
+import { useEffect, useState } from "react";
 import {
 	View,
 	TextInput,
@@ -8,24 +8,35 @@ import {
 	Button,
 	Text,
 	TouchableOpacity,
-	TouchableHighlight
-} from 'react-native';
-import { RoutesList } from '../../../Routes';
+	TouchableHighlight,
+	NativeSyntheticEvent,
+	TextInputChangeEventData,
+} from "react-native";
+import { AuthNavProps } from "../../../api/types/AuthNavProps";
+import { useDispatch } from "react-redux";
+import { authenticateUser } from "../../../state/session/session.thunk";
 
-interface LoginPageProps {
-	navigation: StackNavigationProp<RoutesList, 'Public'>;
-}
-
-const LoginPage: React.FC<LoginPageProps> = ({ navigation }) => {
+const LoginPage: React.FC<AuthNavProps<"Public">> = ({ navigation }) => {
 	const [loading, setLoading] = useState<boolean>(false);
+	const [credentials, setCredentials] = useState({ email: "user@user.com", password: "Admin123!" });
+	const dispatch = useDispatch();
+	let isMounted = true;
+	useEffect(() => {
+		return () => {
+			isMounted = false;
+		};
+	});
 
 	const handleSignInButtonClick = () => {
 		setLoading(true);
 		setTimeout(() => {
-			navigation.navigate('Home');
-			setLoading(false);
-		}, 1500);
+			dispatch(authenticateUser(credentials));
+			if (isMounted) {
+				setLoading(false);
+			}
+		}, 500);
 	};
+
 	return (
 		<>
 			<View style={styles.viewTextInput}>
@@ -33,12 +44,16 @@ const LoginPage: React.FC<LoginPageProps> = ({ navigation }) => {
 					placeholder="Username"
 					placeholderTextColor="#CCCCCC"
 					style={styles.textInput}
+					onChangeText={(email) => setCredentials({ email, password: credentials.password })}
+					value={credentials.email}
 				></TextInput>
 				<TextInput
 					placeholder="Password"
 					placeholderTextColor="#CCCCCC"
 					secureTextEntry
 					style={styles.textInput}
+					value={credentials.password}
+					onChangeText={(password) => setCredentials({ email: credentials.email, password })}
 				></TextInput>
 			</View>
 			<View style={styles.bottomPaneContainer}>
@@ -51,13 +66,11 @@ const LoginPage: React.FC<LoginPageProps> = ({ navigation }) => {
 					<View
 						style={{
 							flex: 1,
-							justifyContent: 'center',
-							alignItems: 'center'
+							justifyContent: "center",
+							alignItems: "center",
 						}}
 					>
-						<Text style={{ fontSize: 21 }}>
-							{!loading ? 'Sign In' : 'Loading...'}
-						</Text>
+						<Text style={{ fontSize: 21 }}>{!loading ? "Sign In" : "Loading..."}</Text>
 					</View>
 				</TouchableOpacity>
 				<View style={styles.topRectangle}></View>
@@ -70,48 +83,48 @@ const LoginPage: React.FC<LoginPageProps> = ({ navigation }) => {
 const styles = StyleSheet.create({
 	textInput: {
 		borderRadius: 15,
-		borderColor: 'white',
+		borderColor: "white",
 		borderWidth: 2,
-		color: 'white',
+		color: "white",
 		padding: 15,
 		fontSize: 18,
 		width: 350,
 		height: 50,
 		marginBottom: 15,
-		margin: 'auto'
+		margin: "auto",
 	},
 	viewTextInput: {
-		height: '10%',
-		width: '100%',
+		height: "10%",
+		width: "100%",
 		flex: 1,
-		justifyContent: 'center',
-		alignItems: 'center'
+		justifyContent: "center",
+		alignItems: "center",
 	},
 	bottomPaneContainer: {
 		bottom: 0,
-		height: '50%'
+		height: "50%",
 	},
 	topRectangle: {
-		height: '50%'
+		height: "50%",
 	},
 	signInButton: {
-		position: 'absolute',
+		position: "absolute",
 		zIndex: 2,
 		bottom: 50,
 		right: 50,
-		backgroundColor: 'white',
+		backgroundColor: "white",
 		width: 120,
 		borderRadius: 10,
-		height: 50
+		height: 50,
 	},
 	bottomRectangle: {
-		position: 'absolute',
+		position: "absolute",
 		bottom: 0,
 		left: 0,
-		width: '100%',
+		width: "100%",
 		height: 75,
-		backgroundColor: '#414858'
-	}
+		backgroundColor: "#414858",
+	},
 });
 
 export default LoginPage;
