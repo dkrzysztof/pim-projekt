@@ -1,19 +1,27 @@
 import React from "react";
-import { createStackNavigator } from "@react-navigation/stack";
-import { NavigationContainer } from "@react-navigation/native";
 import { View, Text, Button, SafeAreaView } from "react-native";
 import { useDispatch } from "react-redux";
-import { devalidateSession } from "../../../state/session/session.slice";
+import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
+import DailyView from "./components/DailyView";
+import MonthlyView from "./components/MonthlyView";
+import WeeklyView from "./components/WeeklyView";
+import { createDrawerNavigator } from "@react-navigation/drawer";
 
-const DailyPage: React.FC<{}> = () => {
+const Tab = createMaterialTopTabNavigator();
+const Drawer = createDrawerNavigator();
+
+const HomePage: React.FC<{}> = () => {
 	const dispatch = useDispatch();
 
 	return (
 		<SafeAreaView style={{ marginTop: 25 }}>
-			<Text>Home Auth Page</Text>
-			<Button title="Wyloguj" onPress={() => dispatch(devalidateSession())} />
+			<Tab.Navigator>
+				<Tab.Screen name="Daily" component={DailyView} />
+				<Tab.Screen name="Weekly" component={WeeklyView} />
+				<Tab.Screen name="Monthly" component={MonthlyView} />
+			</Tab.Navigator>
 		</SafeAreaView>
 	);
 };
 
-export default DailyPage;
+export default HomePage;

@@ -1,7 +1,7 @@
 import axios, { AxiosResponse, AxiosRequestConfig, AxiosError } from "axios";
 import store from "../state/store";
 import AuthApi from "./auth/authApi";
-import AppConfig from "../../app.config";
+import AppConfig from "../../web.config";
 
 const baseURL = `${AppConfig.hostname}/api`;
 axios.defaults.baseURL = baseURL;
