@@ -35,6 +35,17 @@ namespace server.Controllers
         }
 
         [Authorize]
+        [HttpGet("{noteId}")]
+        public async Task<IActionResult> GetNote([FromRoute]int noteId)
+        {
+            NoteResponse response = await _noteService.GetNote(noteId);
+            
+            if (response == null) 
+                return BadRequest();
+            return Ok();
+        }
+
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> CreateNote([FromBody] AddNewNoteRequest newNote)
         {

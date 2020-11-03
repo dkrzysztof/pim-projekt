@@ -54,15 +54,25 @@ namespace server.Services
 
         }
 
+        public async Task<NoteResponse> GetNote(int noteId)
+        {
+            var userId = CurrentlyLoggedUser.Id;
+
+            Note note = _context.Set<Note>().Where(n => n.Id == noteId && n.User.Id == userId).FirstOrDefault();
+            NoteResponse response = _mapper.Map<Note, NoteResponse>(note);
+
+            return response;
+        }
+
         public async Task<GetAllNotesResponse> GetUserNotes()
         {
             var userId = CurrentlyLoggedUser.Id;
 
             GetAllNotesResponse response = new GetAllNotesResponse();
-            response.NotesResponses = new List<NoteForGetAllNotesResponse>();
+            response.NotesResponses = new List<NoteResponse>();
 
             List<Note> myNotes = await _context.Set<Note>().Where(n => n.User.Id == userId).ToListAsync();
-            response.NotesResponses = _mapper.Map<List<Note>, List<NoteForGetAllNotesResponse>>(myNotes);
+            response.NotesResponses = _mapper.Map<List<Note>, List<NoteResponse>>(myNotes);
 
             foreach(var note in response.NotesResponses)
             {
