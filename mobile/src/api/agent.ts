@@ -2,6 +2,7 @@ import axios, { AxiosResponse, AxiosRequestConfig, AxiosError } from "axios";
 import store from "../state/store";
 import AuthApi from "./auth/authApi";
 import AppConfig from "../../web.config";
+import NoteApi from "./note/noteApi";
 
 const baseURL = `${AppConfig.hostname}/api`;
 axios.defaults.baseURL = baseURL;
@@ -65,4 +66,5 @@ export const requests = {
 
 export default {
 	Auth: AuthApi,
+	Notes: NoteApi,
 };
