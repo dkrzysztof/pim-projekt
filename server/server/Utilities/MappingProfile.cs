@@ -15,7 +15,7 @@ namespace server.Utilities
     {
         public MappingProfile()
         {
-            CreateMap<Note, NoteForGetAllNotesResponse>();
+            CreateMap<Note, NoteResponse>();
             CreateMap<AddNewNoteRequest, Note>();
             CreateMap<ApplicationUser, GetAccountDetailsResponse>();
         }
