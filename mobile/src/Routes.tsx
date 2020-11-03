@@ -7,10 +7,19 @@ import { StyleSheet, Text } from "react-native";
 import { RootState } from "./state/root.reducer";
 import { isStatusLoading } from "./state/utils/status.type";
 import Center from "./components/Center";
+import AuthRoute from "./pages/Auth/AuthRoute";
 
 export type RouteParamList = {
 	Public: undefined;
-	Home: undefined;
+	Auth: {
+		Home: {
+			Daily: undefined;
+			Monthly: undefined;
+			Weekly: undefined;
+		};
+		LogOut: undefined;
+		CreateNote: undefined;
+	};
 };
 
 const styles = StyleSheet.create({
@@ -41,8 +50,8 @@ const Routes: React.FC<{}> = () => {
 
 	if (isUserLoggedIn) {
 		return (
-			<Stack.Navigator initialRouteName="Home" screenOptions={{ headerShown: false }}>
-				<Stack.Screen name="Home" component={HomePage} />
+			<Stack.Navigator initialRouteName="Auth" screenOptions={{ headerShown: false }}>
+				<Stack.Screen name="Auth" component={AuthRoute} />
 			</Stack.Navigator>
 		);
 	} else {

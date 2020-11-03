@@ -8,7 +8,7 @@ const Drawer = createDrawerNavigator();
 
 const AuthRoute: React.FC<{}> = () => {
 	return (
-		<Drawer.Navigator initialRouteName="Home">
+		<Drawer.Navigator initialRouteName="CreateNote">
 			<Drawer.Screen name="Home" component={HomePage} />
 			<Drawer.Screen name="CreateNote" component={CreateNotePage} />
 			<Drawer.Screen name="LogOut" component={LogOutPage} />

@@ -6,13 +6,14 @@ import { devalidateSession } from "../../../state/session/session.slice";
 
 const LogOutPage: React.FC<{}> = () => {
 	const dispatch = useDispatch();
+
 	useEffect(() => {
 		dispatch(devalidateSession());
 	});
 
 	return (
 		<Center>
-			<Text>Loading...</Text>
+			<Text>Wylogwywanie...</Text>
 		</Center>
 	);
 };
