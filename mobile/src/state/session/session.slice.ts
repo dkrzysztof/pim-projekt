@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { UserLoginResponse } from "../../api/auth/responses";
+import { UserLoginResponse, UserRegisterResponse } from "../../api/auth/responses";
 import { StatusTypes } from "../utils/status.type";
 import { sessionInitialState, SessionState } from "./session.state";
 
@@ -7,6 +7,8 @@ export const sessionSlice = createSlice({
 	name: "session",
 	initialState: sessionInitialState,
 	reducers: {
+
+
 		authenticateUserStart: (state: SessionState) => {
 			state.status.authenticateUser = StatusTypes.LOADING;
 		},
@@ -22,6 +24,23 @@ export const sessionSlice = createSlice({
 			state.info = sessionInitialState.info;
 		},
 
+
+
+
+		registerUserStart: (state: SessionState) => {
+			state.status.authenticateUser = StatusTypes.LOADING;
+		},
+		registerUserSuccess: (state: SessionState, action: PayloadAction<UserRegisterResponse>) => {
+			state.status.authenticateUser = StatusTypes.SUCCESS;
+			state.info = action.payload;
+		},
+		registerUserFailure: (state: SessionState, action: PayloadAction<string[]> ) => {
+			state.status.authenticateUser = StatusTypes.ERROR;
+		},
+
+
+
+
 		///
 
 		devalidateSession: (state: SessionState) => {
@@ -34,5 +53,10 @@ export const {
 	authenticateUserStart,
 	authenticateUserSuccess,
 	authenticateUserFailure,
+
+	registerUserStart,
+	registerUserSuccess,
+	registerUserFailure,
+
 	devalidateSession,
 } = sessionSlice.actions;

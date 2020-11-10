@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { SafeAreaView, View, Text } from "react-native";
+import { SafeAreaView, View, Text, KeyboardAvoidingView } from "react-native";
 import { NavigationProp } from "@react-navigation/native";
 
 import LandingPageTextButton from "../../components/LandingPageTextButton";
@@ -15,16 +15,18 @@ const PublicPage: React.FC<AuthNavProps<"Public">> = ({ navigation, route }) => 
 	const [currentState, setCurrentState] = useState<number>(0);
 
 	return (
+
 		<SafeAreaView style={PublicPageStyles.container}>
+
 			<View style={PublicPageStyles.titleContainer}>
 				<Text style={PublicPageStyles.title}>Planday</Text>
 			</View>
 			<View style={PublicPageStyles.bodyContainer}>
+
 				<View style={PublicPageStyles.buttonsContainer}>
 					<LandingPageTextButton
 						buttonTitle="Sign In"
 						onPress={() => {
-							console.log("it works");
 							setCurrentState(0);
 						}}
 						isToggled={currentState === 0}
@@ -36,9 +38,11 @@ const PublicPage: React.FC<AuthNavProps<"Public">> = ({ navigation, route }) => 
 					/>
 				</View>
 			</View>
+
 			<View style={PublicPageStyles.componentContainer}>
 				{currentState === 0 ? <LoginPage navigation={navigation} route={route} /> : <SingUpPage />}
 			</View>
+
 		</SafeAreaView>
 	);
 };
