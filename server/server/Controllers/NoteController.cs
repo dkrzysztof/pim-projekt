@@ -42,7 +42,7 @@ namespace server.Controllers
             
             if (response == null) 
                 return BadRequest();
-            return Ok();
+            return Ok(response);
         }
 
         [Authorize]
