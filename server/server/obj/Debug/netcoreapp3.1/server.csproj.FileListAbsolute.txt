@@ -223,7 +223,15 @@ E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt-1\pim-proje
 E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt-1\pim-projekt\server\server\obj\Debug\netcoreapp3.1\server.dll
 E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt-1\pim-projekt\server\server\obj\Debug\netcoreapp3.1\server.pdb
 E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt-1\pim-projekt\server\server\obj\Debug\netcoreapp3.1\server.genruntimeconfig.cache
-<<<<<<< HEAD
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\AspNet.Security.OAuth.Validation.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\AutoMapper.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\obj\Debug\netcoreapp3.1\server.MvcApplicationPartsAssemblyInfo.cs
 D:\Workspace\react_native\PIM\server\server\bin\Debug\netcoreapp3.1\appsettings.Development.json
 D:\Workspace\react_native\PIM\server\server\bin\Debug\netcoreapp3.1\appsettings.json
 D:\Workspace\react_native\PIM\server\server\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
@@ -301,14 +309,3 @@ D:\Workspace\react_native\PIM\server\server\obj\Debug\netcoreapp3.1\staticwebass
 D:\Workspace\react_native\PIM\server\server\obj\Debug\netcoreapp3.1\server.dll
 D:\Workspace\react_native\PIM\server\server\obj\Debug\netcoreapp3.1\server.pdb
 D:\Workspace\react_native\PIM\server\server\obj\Debug\netcoreapp3.1\server.genruntimeconfig.cache
-=======
-D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\AspNet.Security.OAuth.Validation.dll
-D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\AutoMapper.dll
-D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
-D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
-D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
-D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
-D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
-D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
-D:\Stuff\Programowanie\pim-projekt\server\server\obj\Debug\netcoreapp3.1\server.MvcApplicationPartsAssemblyInfo.cs
->>>>>>> origin/PLAN-02

@@ -1,14 +1,8 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-<<<<<<< HEAD
       "C:\\Users\\Krzysztof\\.dotnet\\store\\|arch|\\|tfm|",
       "C:\\Users\\Krzysztof\\.nuget\\packages"
-=======
-      "C:\\Users\\Kacper\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\Kacper\\.nuget\\packages",
-      "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
->>>>>>> origin/PLAN-02
     ]
   }
 }

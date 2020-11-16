@@ -35,10 +35,11 @@ namespace server.Controllers
         }
 
         [Authorize]
-        [HttpGet("sorted")]
-        public async Task<IActionResult> GetSortedNotes([FromRoute]int spanId)
+        [HttpGet("sorted/{spanId}")]
+        public async Task<IActionResult> GetSortedNotes(int spanId)
         {
-            return Ok();
+            var response = await _noteService.GetSortedNotes(spanId);
+            return Ok(response);
         }
 
         [Authorize]
@@ -49,7 +50,7 @@ namespace server.Controllers
             
             if (response == null) 
                 return BadRequest();
-            return Ok(response);
+            return Ok();
         }
 
         [Authorize]
@@ -73,7 +74,7 @@ namespace server.Controllers
 
         [Authorize]
         [HttpDelete("{noteId}")]
-        public async Task<IActionResult> DeleteNote([FromRoute] int noteId)
+        public async Task<IActionResult> DeleteNote([FromRoute]int noteId)
         {
             var response = await _noteService.DeleteNote(noteId);
             if (!response) return BadRequest();

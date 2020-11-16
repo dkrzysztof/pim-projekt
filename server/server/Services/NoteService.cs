@@ -117,6 +117,8 @@ namespace server.Services
 
                 foreach(var singleNote in noteSpan)
                     newNote.Notes.Add(_mapper.Map<NoteResponse, PreviewNoteResponse>(singleNote));
+
+                response.SortedNotesResponses.Add(newNote);
             }
 
             return response;
