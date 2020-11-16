@@ -77,6 +77,15 @@ namespace server.Services
             return weekString;
         }
 
+        private DateTime GetWeekEnd(DateTime dateTime, DayOfWeek startOfWeek)
+        {
+            int diff = dateTime.DayOfWeek - startOfWeek;
+            if (diff < 0) diff += 7;
+
+            DateTime weekBegin = dateTime.AddDays(-1 * diff).Date;
+            return weekBegin.AddDays(6).Date;
+        }
+
         public async Task<GetAllSortedNotesResponse> GetSortedNotes(int spanId)
         {
             var userId = CurrentlyLoggedUser.Id;
@@ -85,6 +94,7 @@ namespace server.Services
             response.SortedNotesResponses = new List<GetSortedNotesResponse>();
 
             GetAllNotesResponse notes = await GetUserNotes();
+            notes.NotesResponses = notes.NotesResponses.OrderBy(n => n.EventDate).ToList();
             List<NoteResponse> noDue = notes.NotesResponses.Where(n => n.EventDate == null).ToList();
             List<IGrouping<string, NoteResponse>> myNotes = new List<IGrouping<string, NoteResponse>>();
 
@@ -118,6 +128,9 @@ namespace server.Services
                 foreach(var singleNote in noteSpan)
                     newNote.Notes.Add(_mapper.Map<NoteResponse, PreviewNoteResponse>(singleNote));
 
+                newNote.PeriodEnd = spanId == 0 ?
+                                    noteSpan.ElementAt(0).EventDate :
+                                    GetWeekEnd(noteSpan.ElementAt(0).EventDate.Value, DayOfWeek.Monday);
                 response.SortedNotesResponses.Add(newNote);
             }
 
