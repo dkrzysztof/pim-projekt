@@ -13,6 +13,9 @@ import LandingPageTextButton from './components/LandingPageTextButton';
 
 import LoginPage from './pages/LoginPage/LoginPage';
 import SignUpPage from './pages/SignUpPage/SignUpPage';
+import DailyViewPage from './pages/DailyViewPage/DailyViewPage'
+import TestPage from './pages/TestPage'
+import Header from './shared/Header'
 
 export default function App() {
 	const [isToggled, toggleView] = useState<boolean>(true);
@@ -23,26 +26,8 @@ export default function App() {
 
 	return (
 		<SafeAreaView style={styles.container}>
-			<View style={styles.titleContainer}>
-				<Text style={styles.title}>Planday</Text>
-			</View>
-			<View style={styles.bodyContainer}>
-				<View style={styles.buttonsContainer}>
-					<LandingPageTextButton
-						buttonTitle="Sign In"
-						onPress={handleToggleViewChange}
-						isToggled={isToggled}
-					/>
-					<LandingPageTextButton
-						buttonTitle="Sign Up"
-						onPress={handleToggleViewChange}
-						isToggled={!isToggled}
-					/>
-				</View>
-			</View>
-			<View style={styles.componentContainer}>
-				{isToggled ? <LoginPage /> : <SignUpPage />}
-			</View>
+			{/* <DailyViewPage/> */}
+			<TestPage />
 		</SafeAreaView>
 	);
 }
@@ -50,11 +35,12 @@ export default function App() {
 const styles = StyleSheet.create({
 	container: {
 		paddingTop: 30,
+		paddingBottom: 110,
 		flex: 1,
 		color: 'white',
-		backgroundColor: '#292F3D',
-		alignItems: 'center',
-		justifyContent: 'center'
+		backgroundColor: '#15181F',
+		justifyContent: 'flex-start',
+		alignItems: 'center'
 	},
 	bodyContainer: {
 		flex: 1,
