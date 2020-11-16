@@ -1,8 +1,8 @@
 import React from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import HomePage from "./HomePage/HomePage";
-import CreateNotePage from "./CreateNotePage/CreateNotePage";
 import LogOutPage from "./LogOutPage/LogOutPage";
+import CreateNotePage from "./CreateNotePage/CreateNotePage";
 
 const Drawer = createDrawerNavigator();
 

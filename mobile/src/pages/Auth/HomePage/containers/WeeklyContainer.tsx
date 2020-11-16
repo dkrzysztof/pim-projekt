@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text } from "react-native";
 import Center from "../../../../components/Center";
 
-const WeeklyView: React.FC<{}> = () => {
+const WeeklyContainer: React.FC<{}> = () => {
 	return (
 		<Center>
 			<Text>Weekly View</Text>
@@ -10,4 +10,4 @@ const WeeklyView: React.FC<{}> = () => {
 	);
 };
 
-export default WeeklyView;
+export default WeeklyContainer;
