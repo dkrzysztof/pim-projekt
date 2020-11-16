@@ -8,6 +8,7 @@ using server.Security.Interfaces;
 using server.Services.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -60,6 +61,63 @@ namespace server.Services
 
             Note note = _context.Set<Note>().Where(n => n.Id == noteId && n.User.Id == userId).FirstOrDefault();
             NoteResponse response = _mapper.Map<Note, NoteResponse>(note);
+
+            return response;
+        }
+
+        private string ToWeekString(DateTime dateTime, DayOfWeek startOfWeek)
+        {
+            int diff = dateTime.DayOfWeek - startOfWeek;
+            if (diff < 0) diff += 7;
+
+            DateTime weekBegin = dateTime.AddDays(-1 * diff).Date;
+            DateTime weekEnd = weekBegin.AddDays(6).Date;
+
+            string weekString = $"{weekBegin.Day}.{weekBegin.Month} - {weekEnd.Day}.{weekEnd.Month}";
+            return weekString;
+        }
+
+        public async Task<GetAllSortedNotesResponse> GetSortedNotes(int spanId)
+        {
+            var userId = CurrentlyLoggedUser.Id;
+
+            GetAllSortedNotesResponse response = new GetAllSortedNotesResponse();
+            response.SortedNotesResponses = new List<GetSortedNotesResponse>();
+
+            GetAllNotesResponse notes = await GetUserNotes();
+            List<NoteResponse> noDue = notes.NotesResponses.Where(n => n.EventDate == null).ToList();
+            List<IGrouping<string, NoteResponse>> myNotes = new List<IGrouping<string, NoteResponse>>();
+
+            switch (spanId)
+            {
+                case 0:
+                    myNotes = notes.NotesResponses.Where(n => n.EventDate != null)
+                                                  .GroupBy(n => n.EventDate.Value.ToShortDateString())
+                                                  .ToList();
+                    break;
+                case 1:
+                    myNotes = notes.NotesResponses.Where(n => n.EventDate != null)
+                                                  .GroupBy(n => ToWeekString(n.EventDate.Value, DayOfWeek.Monday))
+                                                  .ToList();
+                    break;
+            }
+
+            response.SortedNotesResponses.Add(new GetSortedNotesResponse()
+            {
+                Notes = _mapper.Map<List<NoteResponse>, List<PreviewNoteResponse>>(noDue),
+                PeriodValue = "No Due",
+                PeriodEnd = null
+            });
+
+            foreach(var noteSpan in myNotes)
+            {
+                GetSortedNotesResponse newNote = new GetSortedNotesResponse();
+                newNote.PeriodValue = noteSpan.Key;
+                newNote.Notes = new List<PreviewNoteResponse>();
+
+                foreach(var singleNote in noteSpan)
+                    newNote.Notes.Add(_mapper.Map<NoteResponse, PreviewNoteResponse>(singleNote));
+            }
 
             return response;
         }

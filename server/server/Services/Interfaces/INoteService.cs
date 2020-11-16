@@ -11,6 +11,7 @@ namespace server.Services.Interfaces
     public interface INoteService : IBaseService<Note>
     {
         Task<GetAllNotesResponse> GetUserNotes();
+        Task<GetAllSortedNotesResponse> GetSortedNotes(int spanId);
         Task<NoteResponse> GetNote(int noteId);
         Task<bool> AddNewNote(AddNewNoteRequest newNote);
         Task<bool> UpdateNote(UpdateNoteRequest request);

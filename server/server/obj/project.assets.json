@@ -7054,7 +7054,6 @@
       "path": "system.security.cryptography.openssl/4.3.0",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/netstandard1.6/System.Security.Cryptography.OpenSsl.dll",
@@ -8025,7 +8024,6 @@
       "path": "system.xml.xmlserializer/4.3.0",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -8106,19 +8104,36 @@
     ]
   },
   "packageFolders": {
+<<<<<<< HEAD
     "C:\\Users\\Krzysztof\\.nuget\\packages\\": {}
+=======
+    "C:\\Users\\Kacper\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+>>>>>>> origin/PLAN-02
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "D:\\Workspace\\react_native\\PIM\\server\\server\\server.csproj",
       "projectName": "server",
       "projectPath": "D:\\Workspace\\react_native\\PIM\\server\\server\\server.csproj",
       "packagesPath": "C:\\Users\\Krzysztof\\.nuget\\packages\\",
       "outputPath": "D:\\Workspace\\react_native\\PIM\\server\\server\\obj\\",
+=======
+      "projectUniqueName": "D:\\Stuff\\Programowanie\\pim-projekt\\server\\server\\server.csproj",
+      "projectName": "server",
+      "projectPath": "D:\\Stuff\\Programowanie\\pim-projekt\\server\\server\\server.csproj",
+      "packagesPath": "C:\\Users\\Kacper\\.nuget\\packages\\",
+      "outputPath": "D:\\Stuff\\Programowanie\\pim-projekt\\server\\server\\obj\\",
+>>>>>>> origin/PLAN-02
       "projectStyle": "PackageReference",
       "configFilePaths": [
+<<<<<<< HEAD
         "C:\\Users\\Krzysztof\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+        "C:\\Users\\Kacper\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> origin/PLAN-02
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8126,7 +8141,9 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "C:\\Users\\Kacper\\Desktop": {},
+        "https://api.nuget.org/v3/index.json": {},
+        "https://nuget.emzi0767.com/api/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp3.1": {
@@ -8205,7 +8222,11 @@
             "privateAssets": "all"
           }
         },
+<<<<<<< HEAD
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+=======
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+>>>>>>> origin/PLAN-02
       }
     }
   }
