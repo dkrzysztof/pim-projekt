@@ -18,6 +18,7 @@ namespace server.Utilities
             CreateMap<Note, NoteResponse>();
             CreateMap<AddNewNoteRequest, Note>();
             CreateMap<ApplicationUser, GetAccountDetailsResponse>();
+            CreateMap<NoteResponse, PreviewNoteResponse>();
         }
 
     }

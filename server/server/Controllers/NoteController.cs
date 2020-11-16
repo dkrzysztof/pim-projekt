@@ -35,6 +35,13 @@ namespace server.Controllers
         }
 
         [Authorize]
+        [HttpGet("sorted")]
+        public async Task<IActionResult> GetSortedNotes([FromRoute]int spanId)
+        {
+            return Ok();
+        }
+
+        [Authorize]
         [HttpGet("{noteId}")]
         public async Task<IActionResult> GetNote([FromRoute]int noteId)
         {

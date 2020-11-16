@@ -223,3 +223,12 @@ E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt-1\pim-proje
 E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt-1\pim-projekt\server\server\obj\Debug\netcoreapp3.1\server.dll
 E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt-1\pim-projekt\server\server\obj\Debug\netcoreapp3.1\server.pdb
 E:\Jakub\Documents\Programowanie\C#\ASP.NET Core\Planday\pim-projekt-1\pim-projekt\server\server\obj\Debug\netcoreapp3.1\server.genruntimeconfig.cache
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\AspNet.Security.OAuth.Validation.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\AutoMapper.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Stuff\Programowanie\pim-projekt\server\server\obj\Debug\netcoreapp3.1\server.MvcApplicationPartsAssemblyInfo.cs
