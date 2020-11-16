@@ -1,8 +1,9 @@
 import { StyleSheet } from 'react-native';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 const PublicPageStyles = StyleSheet.create({
 	container: {
-		paddingTop: 30,
+		paddingTop: 10,
 		flex: 1,
 		color: 'white',
 		backgroundColor: '#292F3D',
@@ -14,17 +15,17 @@ const PublicPageStyles = StyleSheet.create({
 		alignItems: 'center',
 		justifyContent: 'space-around',
 		width: 350,
-		height: '80%'
+		height: '100%',
 	},
 	titleContainer: {
 		flex: 1,
-		height: '20%',
+		height: '10%',
 		width: '100%',
 		justifyContent: 'center',
 		alignItems: 'center'
 	},
 	buttonsContainer: {
-		height: '10%',
+		height: '100%',
 		width: '90%',
 		flex: 1,
 		flexDirection: 'row',
@@ -32,8 +33,9 @@ const PublicPageStyles = StyleSheet.create({
 		alignItems: 'center'
 	},
 	componentContainer: {
-		height: '50%',
-		width: '100%'
+		display: "flex",
+		height: '60%',
+		width: '100%',
 	},
 	title: {
 		color: 'white',

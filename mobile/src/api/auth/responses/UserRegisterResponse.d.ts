@@ -1,1 +1,4 @@
-export interface UserRegisterResponse {}
+export interface UserRegisterResponse {
+    token: string;
+	refreshToken: string;
+}
