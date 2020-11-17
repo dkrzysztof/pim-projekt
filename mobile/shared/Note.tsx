@@ -43,9 +43,9 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
         backgroundColor: '#1B1F28',
         alignItems: 'flex-start',
-        shadowOpacity: 1,
-        shadowRadius: 20,
-        shadowColor: 'red'
+        // shadowOpacity: 1,
+        // shadowRadius: 20,
+        // shadowColor: 'red'
     },
     noteHeaderContainer: {
         width: '100%',

@@ -17,7 +17,7 @@ const Task: React.FC<Props> = (props) => {
 	return (
         <View style={styles.task}>
             <View style={pickIcon(props.task.importance, props.task.done)}/>
-            {}
+            
             <Text style={props.task.done ? styles.taskTextDone : styles.taskText}>{props.task.title}</Text>
         </View>
 	);

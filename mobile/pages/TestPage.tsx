@@ -43,8 +43,8 @@ const DailyViewPage: React.FC<{}> = () => {
 		<>
 			<Header />
 			{/* <View style={styles.container}> */}
-			{/* <NewNoteFormulage/> */}
-			<NotesList notes={testNotes}/>
+			<NewNoteFormulage/>
+			{/* <NotesList notes={testNotes}/> */}
 			{/* </View> */}
 		</>
 	);
