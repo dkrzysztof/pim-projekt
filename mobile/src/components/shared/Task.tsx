@@ -1,21 +1,18 @@
 import * as React from "react";
 import { View, StyleSheet, Text, Button, Alert, TouchableOpacity, TextInput, ImagePropTypes } from "react-native";
-import { FontAwesome5 } from "@expo/vector-icons";
-import { AntDesign } from "@expo/vector-icons";
-import ButtonTrans from "./ButtonTrans";
-import { StyleProvider } from "native-base";
-import { NoteForGetAllNotesResponse } from "../../api/note/responses/GetAllNotesResponse";
+import { NoteForGetDailyNotesResponse } from "../../api/note/responses";
 
 export interface Props {
-	task: NoteForGetAllNotesResponse;
+	task: NoteForGetDailyNotesResponse;
+	onPress: (noteId: number) => () => void;
 }
 
-const Task: React.FC<Props> = ({ task }) => {
+const Task: React.FC<Props> = ({ task, onPress }) => {
 	return (
-		<View style={styles.task}>
+		<TouchableOpacity style={styles.task} onPress={onPress(task.id)}>
 			<View style={pickIcon(task.priorityId, false)} />
 			<Text style={false ? styles.taskTextDone : styles.taskText}>{task.title}</Text>
-		</View>
+		</TouchableOpacity>
 	);
 };
 

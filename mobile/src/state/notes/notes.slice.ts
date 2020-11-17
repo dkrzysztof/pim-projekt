@@ -1,6 +1,13 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { UpdateNoteRequest } from "../../api/note/requests";
-import { DeleteNoteResponse, GetAllNotesResponse, GetNoteDetails, UpdateNoteResponse } from "../../api/note/responses";
+import {
+	DeleteNoteResponse,
+	GetAllNotesResponse,
+	GetDailyNotesResponse,
+	GetNoteDetails,
+	GetWeeklyNotesResponse,
+	UpdateNoteResponse,
+} from "../../api/note/responses";
 import { StatusTypes } from "../utils/status.type";
 import { notesInitialState, NotesState } from "./notes.state";
 
@@ -22,13 +29,16 @@ const notesSlice = createSlice({
 
 		///
 
-		getNoteDetailsStart: (state: NotesState) => {
-			state.status.getNoteDetails = StatusTypes.LOADING;
+		getNoteDetailsStart: (state: NotesState, action: PayloadAction<number>) => {
+			state.status.getNoteDetails = StatusTypes.SUCCESS;
+			const noteId = action.payload;
+			state.selectedNoteId = noteId;
+			state.selectedNote = state.notes?.find((val) => val.id === noteId) || null;
 		},
 		getNoteDetailsSuccess: (state: NotesState, action: PayloadAction<GetNoteDetails>) => {
 			state.status.getNoteDetails = StatusTypes.SUCCESS;
-			state.selectedNote = action.payload;
-			state.selectedNoteId = action.payload.id;
+			// state.selectedNote = action.payload;
+			// state.selectedNoteId = action.payload.id;
 		},
 		getNoteDetailsFailure: (state: NotesState, action: PayloadAction<string>) => {
 			state.status.getNoteDetails = StatusTypes.ERROR;
@@ -71,6 +81,36 @@ const notesSlice = createSlice({
 		updateNoteFailure: (state: NotesState, action: PayloadAction<string>) => {
 			state.status.updateNote = StatusTypes.ERROR;
 		},
+
+		///
+
+		getDailyNotesStart: (state: NotesState) => {
+			state.status.getDailyNotes = StatusTypes.LOADING;
+		},
+		getDailyNotesSuccess: (state: NotesState, action: PayloadAction<GetDailyNotesResponse>) => {
+			state.status.getDailyNotes = StatusTypes.SUCCESS;
+			state.notesDaily = action.payload.sortedNotesResponses;
+		},
+		getDailyNotesFailure: (state: NotesState, action: PayloadAction<string>) => {
+			state.status.getDailyNotes = StatusTypes.ERROR;
+			state.notes = null;
+		},
+
+		///
+
+		getWeeklyNotesStart: (state: NotesState) => {
+			state.status.getWeeklyNotes = StatusTypes.LOADING;
+		},
+		getWeeklyNotesSuccess: (state: NotesState, action: PayloadAction<GetWeeklyNotesResponse>) => {
+			state.status.getWeeklyNotes = StatusTypes.SUCCESS;
+			state.notesWeekly = action.payload.sortedNotesResponses;
+		},
+		getWeeklyNotesFailure: (state: NotesState, action: PayloadAction<string>) => {
+			state.status.getWeeklyNotes = StatusTypes.ERROR;
+			state.notes = null;
+		},
+
+		///
 	},
 });
 
@@ -90,6 +130,12 @@ export const {
 	updateNoteFailure,
 	updateNoteStart,
 	updateNoteSuccess,
+	getDailyNotesFailure,
+	getDailyNotesStart,
+	getDailyNotesSuccess,
+	getWeeklyNotesFailure,
+	getWeeklyNotesStart,
+	getWeeklyNotesSuccess,
 } = notesSlice.actions;
 
 export default notesSlice;

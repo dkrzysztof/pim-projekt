@@ -217,7 +217,7 @@ namespace server
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "API");
             });
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             app.UseRouting();
 

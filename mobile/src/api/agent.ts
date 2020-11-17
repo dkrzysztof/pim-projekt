@@ -3,6 +3,7 @@ import store from "../state/store";
 import AuthApi from "./auth/authApi";
 import AppConfig from "../../web.config";
 import NoteApi from "./note/noteApi";
+import { devalidateSession } from "../state/session/session.slice";
 
 const baseURL = `${AppConfig.hostname}/api`;
 axios.defaults.baseURL = baseURL;
@@ -34,6 +35,9 @@ axios.interceptors.response.use(undefined, (error: AxiosError) => {
 	const { message, code } = error || {};
 
 	console.error(code, message);
+	if (code == "401") {
+		store.dispatch(devalidateSession());
+	}
 	throw message;
 });
 

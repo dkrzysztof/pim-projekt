@@ -1,77 +1,63 @@
+import { useNavigation } from "@react-navigation/native";
+import { StackNavigationProp } from "@react-navigation/stack";
 import React, { useEffect } from "react";
-import { View, StyleSheet, SafeAreaView, ScrollView } from "react-native";
+import { View, StyleSheet, SafeAreaView, ScrollView, RefreshControl } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import Header from "../../../../components/shared/Header";
-import { getUserNotes } from "../../../../state/notes/notes.thunk";
+import { getDailyNotes, getUserNotes } from "../../../../state/notes/notes.thunk";
 import { RootState } from "../../../../state/root.reducer";
-import Note from "../components/Note";
+import Tile from "../components/Tile";
 
-const testNotes = [
-	{
-		title: "No Due",
-		// date:'21.12.2020r.',
-		tasks: [
-			{ title: "Important Task 1", importance: 1, done: true },
-			{ title: "Important Task 2", importance: 2, done: false },
-			{ title: "Important Task 3", importance: 3, done: true },
-			{ title: "Important Task 4", importance: 1, done: false },
-		],
-	},
-	{
-		title: "Tuesday",
-		date: "21.12.2020r.",
-		tasks: [
-			{ title: "Important Task 1", importance: 1, done: false },
-			{ title: "Important Task 2", importance: 2, done: true },
-			{ title: "Important Task 3", importance: 3, done: false },
-			{ title: "Important Task 4", importance: 1, done: true },
-		],
-	},
-	{
-		title: "Wednesday",
-		date: "22.12.2020r.",
-		tasks: [
-			{ title: "Important Task 1", importance: 1, done: true },
-			{ title: "Task 2", importance: 2, done: false },
-			{ title: "Task 3", importance: 3, done: false },
-			{ title: "Important Task 4", importance: 1, done: false },
-			{ title: "Task 5", importance: 3, done: true },
-			{ title: "Task 6", importance: 1, done: false },
-		],
-	},
-	{
-		title: "Thursday",
-		date: "22.12.2020r.",
-		tasks: [
-			{ title: "Important Task 1", importance: 1, done: true },
-			{ title: "Task 2", importance: 2, done: false },
-			{ title: "Task 3", importance: 3, done: false },
-			{ title: "Important Task 4", importance: 1, done: false },
-			{ title: "Task 5", importance: 3, done: true },
-			{ title: "Task 6", importance: 1, done: false },
-		],
-	},
-];
+interface DailyContainerProps {
+	navigation: StackNavigationProp<
+		{
+			Daily: undefined;
+			Weekly: undefined;
+			Monthly: undefined;
+		},
+		"Daily"
+	>;
+}
 
-interface DailyContainerProps {}
-
-const DailyContainer: React.FC<DailyContainerProps> = () => {
+const DailyContainer: React.FC<DailyContainerProps> = ({}) => {
 	const dispatch = useDispatch();
-	const notes = useSelector((state: RootState) => state.notes.notes);
+	const dailyNotes = useSelector((state: RootState) => state.notes.notesDaily);
+	const navigation = useNavigation();
+
+	const [refreshing, setRefreshing] = React.useState(false);
+
+	const onRefresh = React.useCallback(() => {
+		setRefreshing(true);
+		dispatch(
+			getDailyNotes(
+				() => setRefreshing(false),
+				() => setRefreshing(false)
+			)
+		);
+	}, []);
 
 	useEffect(() => {
-		dispatch(getUserNotes());
+		dispatch(getDailyNotes());
 	}, [dispatch]);
 
-	// notes?.map( val => ({date: val.val.}))
+	const handleNotesDetailsClick = (noteId: number) => {
+		return () => {
+			navigation.navigate("NoteDetails", { noteId });
+		};
+	};
 
-	// const notesComponent = notes && notes.map((note, key) => <Note key={key}notes={note} />);
+	const notesComponent =
+		dailyNotes &&
+		dailyNotes.map((daily, key) => (
+			<Tile key={key} notes={daily.notes} dueDate={daily.periodValue} onPress={handleNotesDetailsClick} />
+		));
 
 	return (
 		<SafeAreaView style={styles.container}>
-			<ScrollView>
+			<ScrollView refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}>
+				{/* <ScrollView> */}
 				<Header />
-				<View style={styles.notesContainer}></View>
+				<View style={styles.notesContainer}>{notesComponent}</View>
 			</ScrollView>
 		</SafeAreaView>
 	);
@@ -80,6 +66,7 @@ const DailyContainer: React.FC<DailyContainerProps> = () => {
 const styles = StyleSheet.create({
 	container: {
 		backgroundColor: "#292F3D",
+		height: "100%",
 	},
 	notesContainer: {
 		marginLeft: 10,

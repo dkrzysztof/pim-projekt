@@ -1,34 +1,99 @@
-import React from "react";
-import { TextInput, StyleSheet } from "react-native";
+import { StackNavigationProp } from "@react-navigation/stack";
+import moment from "moment";
+import { DatePicker, Picker } from "native-base";
+import React, { useState } from "react";
+import { TextInput, StyleSheet, NativeSyntheticEvent, TextInputChangeEventData } from "react-native";
 import { Text, View } from "react-native";
+import { useDispatch } from "react-redux";
+import { CreateNoteRequest } from "../../../../api/note/requests";
 import ButtonTrans from "../../../../components/shared/ButtonTrans";
+import { createUserNote } from "../../../../state/notes/notes.thunk";
 
-const CreateNoteForm: React.FC<{}> = () => {
+interface CreateNoteFormProps {
+	onPress?: () => void;
+	navigation: StackNavigationProp<{ Home: undefined; CreateNote: undefined; LogOut: undefined }, "CreateNote">;
+}
+
+const CreateNoteForm: React.FC<CreateNoteFormProps> = ({ navigation }) => {
+	const [note, setNote] = useState<CreateNoteRequest>({
+		Content: "Lorem ipsum",
+		PriorityId: 1,
+		Title: "Nowa notatka",
+	});
+	const dispatch = useDispatch();
+
+	const handleButtonPress = () => {
+		// console.log(note.EventDate);
+		dispatch(
+			createUserNote({ ...note, EventDate: moment(note.EventDate).add(1, "days").toISOString() }, () =>
+				navigation.navigate("Home")
+			)
+		);
+	};
+
 	return (
 		<View style={styles.formulageContainer}>
 			<Text style={styles.headerText}>{"Add new\nNote"}</Text>
 			<View style={styles.underline} />
 
-			<TextInput placeholder="Note title" placeholderTextColor="#CCCCCC" style={styles.textInput}></TextInput>
-			<TextInput placeholder="Priority" placeholderTextColor="#CCCCCC" style={styles.textInput}></TextInput>
 			<TextInput
-				placeholder="Event Date"
+				value={note?.Title}
+				onChangeText={(Title) => setNote((ps) => ({ ...ps, Title }))}
+				placeholder="Note title"
 				placeholderTextColor="#CCCCCC"
-				style={styles.textInputDashed}
+				style={styles.textInput}
 			></TextInput>
+			<Picker
+				note
+				mode="dropdown"
+				selectedValue={note.PriorityId}
+				onValueChange={(PriorityId) => setNote((ps) => ({ ...ps, PriorityId }))}
+				style={styles.textInput}
+			>
+				<Picker.Item label="Most imporant" value={1} />
+				<Picker.Item label="Moderate" value={2} />
+				<Picker.Item label="Least" value={3} />
+			</Picker>
+			<DatePicker
+				minimumDate={new Date()}
+				onDateChange={(EventDate) =>
+					setNote((ps) => ({
+						...ps,
+						EventDate: moment(EventDate).toISOString(),
+					}))
+				}
+				modalTransparent={false}
+				animationType={"fade"}
+				androidMode={"default"}
+				timeZoneOffsetInMinutes={24 * 60}
+				locale={"pl"}
+				textStyle={styles.textInputDashed}
+			/>
+			<DatePicker
+				minimumDate={new Date()}
+				onDateChange={(NotificationDate) =>
+					setNote((ps) => ({
+						...ps,
+						NotificationDate: moment(NotificationDate).toISOString(),
+					}))
+				}
+				modalTransparent={false}
+				animationType={"fade"}
+				androidMode={"default"}
+				timeZoneOffsetInMinutes={24 * 60}
+				locale={"pl"}
+				textStyle={styles.textInputDashed}
+			/>
 			<TextInput
-				placeholder="Notification Date"
-				placeholderTextColor="#CCCCCC"
-				style={styles.textInputDashed}
-			></TextInput>
-			<TextInput
+				onChangeText={(Content) => setNote((ps) => ({ ...ps, Content }))}
+				value={note?.Content}
 				placeholder="Description..."
 				placeholderTextColor="#CCCCCC"
 				style={styles.textInputDesc}
 			></TextInput>
 			<View style={styles.buttonsContainer}>
-				<ButtonTrans text={"Cancel"} type={"cancel"}></ButtonTrans>
-				<ButtonTrans text={"Add !"} type={"add"}></ButtonTrans>
+				<ButtonTrans text={"Cancel"} type={"cancel"} onPress={() => navigation.navigate("Home")}></ButtonTrans>
+				<ButtonTrans text={"Add !"} type={"add"} onPress={handleButtonPress}></ButtonTrans>
 			</View>
 		</View>
 	);
@@ -37,9 +102,9 @@ const CreateNoteForm: React.FC<{}> = () => {
 const styles = StyleSheet.create({
 	formulageContainer: {
 		width: "90%",
-		borderRadius: 15,
-		borderColor: "#7D92FF",
-		borderWidth: 2,
+		// borderRadius: 15,
+		// borderColor: "#7D92FF",
+		// borderWidth: 2,
 		color: "white",
 		justifyContent: "flex-start",
 		alignItems: "center",
@@ -65,7 +130,7 @@ const styles = StyleSheet.create({
 		textAlignVertical: "center",
 	},
 	underline: {
-		width: "90%",
+		width: "102%",
 		marginBottom: 10,
 		borderBottomWidth: 2,
 		borderBottomColor: "#525E7A",

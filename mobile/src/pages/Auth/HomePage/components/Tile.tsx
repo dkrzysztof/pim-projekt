@@ -1,27 +1,38 @@
 import * as React from "react";
 import { View, StyleSheet, Text, Button, Alert, TouchableOpacity, TextInput } from "react-native";
-import { FontAwesome5 } from "@expo/vector-icons";
-import { AntDesign } from "@expo/vector-icons";
-import ButtonTrans from "../../../../components/shared/ButtonTrans";
 import Task from "../../../../components/shared/Task";
-import { NoteForGetAllNotesResponse } from "../../../../api/note/responses/GetAllNotesResponse";
+import { NoteForGetDailyNotesResponse } from "../../../../api/note/responses";
+import moment from "moment";
 
 export interface Props {
-	note: NoteForGetAllNotesResponse;
+	notes: NoteForGetDailyNotesResponse[];
+	dueDate: string;
+	onPress: (noteId: number) => () => void;
 }
 
-const Note: React.FC<Props> = ({ note }) => {
+const Tile: React.FC<Props> = ({ notes, dueDate, onPress }) => {
+	let today = moment();
+	let noteDate = moment(dueDate, "DD.MM.YYYY");
+
+	let stringDate = dueDate;
+	if (
+		noteDate.isAfter(today.subtract(1, "days").endOf("day")) &&
+		noteDate.isBefore(today.add(7, "days").endOf("day"))
+	) {
+		stringDate = noteDate.format("dddd");
+	}
+
 	return (
-		<View style={[styles.noteContainer, note.eventDate ? null : { borderColor: "#7D92FF" }]}>
+		<View style={[styles.noteContainer, dueDate ? null : { borderColor: "#7D92FF" }]}>
 			<View style={styles.noteHeaderContainer}>
-				<Text style={styles.headerText}>{note.title}</Text>
-				{note.eventDate ? <Text style={styles.headerDate}>{note.eventDate}</Text> : null}
+				<Text style={styles.headerText}>{stringDate}</Text>
+				{dueDate ? <Text style={styles.headerDate}>{}</Text> : null}
 			</View>
 			<View style={styles.underline} />
-			{/* 
-			{note.map((task, key) => (
-				<Task key={key} task={task} />
-			))} */}
+
+			{notes.map((note, key) => (
+				<Task key={key} task={note} onPress={onPress} />
+			))}
 		</View>
 	);
 };
@@ -76,4 +87,4 @@ const styles = StyleSheet.create({
 	},
 });
 
-export default Note;
+export default Tile;

@@ -11,9 +11,15 @@ import {
 	getAllNotesFailure,
 	getAllNotesStart,
 	getAllNotesSuccess,
+	getDailyNotesFailure,
+	getDailyNotesStart,
+	getDailyNotesSuccess,
 	getNoteDetailsFailure,
 	getNoteDetailsStart,
 	getNoteDetailsSuccess,
+	getWeeklyNotesFailure,
+	getWeeklyNotesStart,
+	getWeeklyNotesSuccess,
 } from "./notes.slice";
 
 export const getUserNotes = (): AppThunk => (dispatch) => {
@@ -23,10 +29,13 @@ export const getUserNotes = (): AppThunk => (dispatch) => {
 		.catch((err) => dispatch(getAllNotesFailure(err)));
 };
 
-export const deleteUserNote = (idNote: number): AppThunk => (dispatch) => {
+export const deleteUserNote = (idNote: number, onSuccess?): AppThunk => (dispatch) => {
 	dispatch(deleteNoteStart());
 	agent.Notes.deleteNote(idNote)
-		.then(() => dispatch(deleteNoteSuccess()))
+		.then(() => {
+			dispatch(deleteNoteSuccess());
+			if (onSuccess) onSuccess;
+		})
 		.catch((err) => dispatch(deleteNoteFailure(err)));
 };
 
@@ -37,16 +46,45 @@ export const updateUserNote = (body: UpdateNoteRequest): AppThunk => (dispatch) 
 		.catch((err) => dispatch(deleteNoteFailure(err)));
 };
 
-export const getUserNoteDetails = (idNote: number): AppThunk => (dispatch) => {
-	dispatch(getNoteDetailsStart());
-	agent.Notes.getNoteDetails(idNote)
-		.then((res) => dispatch(getNoteDetailsSuccess(res)))
-		.catch((err) => dispatch(getNoteDetailsFailure(err)));
+export const getNoteDetails = (idNote: number): AppThunk => (dispatch) => {
+	dispatch(getNoteDetailsStart(idNote));
+	// agent.Notes.getNoteDetails(idNote)
+	// .then((res) => dispatch(getNoteDetailsSuccess(res)))
+	// .catch((err) => dispatch(getNoteDetailsFailure(err)));
 };
 
-export const createUserNote = (body: CreateNoteRequest): AppThunk => (dispatch) => {
+export const createUserNote = (body: CreateNoteRequest, onSuccess?): AppThunk => (dispatch) => {
 	dispatch(createNoteStart());
 	agent.Notes.createNote(body)
-		.then(() => dispatch(createNoteSuccess()))
+		.then(() => {
+			dispatch(createNoteSuccess());
+			if (onSuccess) onSuccess();
+		})
 		.catch((err) => dispatch(createNoteFailure(err)));
+};
+
+export const getDailyNotes = (onSuccess?, onFailure?): AppThunk => (dispatch) => {
+	dispatch(getDailyNotesStart());
+	agent.Notes.getDailyNotes()
+		.then((res) => {
+			dispatch(getDailyNotesSuccess(res));
+			if (onSuccess) onSuccess();
+		})
+		.catch((err) => {
+			dispatch(getDailyNotesFailure(err));
+			if (onFailure) onFailure();
+		});
+};
+
+export const getWeeklyNotes = (onSuccess?, onFailure?): AppThunk => (dispatch) => {
+	dispatch(getWeeklyNotesStart());
+	agent.Notes.getWeeklyNotes()
+		.then((res) => {
+			dispatch(getWeeklyNotesSuccess(res));
+			if (onSuccess) onSuccess();
+		})
+		.catch((err) => {
+			dispatch(getWeeklyNotesFailure(err));
+			if (onFailure) onFailure();
+		});
 };
