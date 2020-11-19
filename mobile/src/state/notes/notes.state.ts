@@ -8,6 +8,7 @@ export interface NotesState {
 		getAllNotes: Status;
 		getDailyNotes: Status;
 		getWeeklyNotes: Status;
+		getMonthlyNotes: Status;
 		deleteNote: Status;
 		updateNote: Status;
 		getNoteDetails: Status;
@@ -16,9 +17,11 @@ export interface NotesState {
 	notes: NoteForGetAllNotesResponse[] | null;
 	notesDaily: DayForGetDailyNotesResponse[] | null;
 	notesWeekly: WeekForGetWeeklyNotesResponse[] | null;
+	notesMonthly: any | null;
 	selectedNoteId: number | null;
 	selectedNote: NoteForGetAllNotesResponse | null;
-	selectedDayNotes: NoteForGetAllNotesResponse[] | null;
+	selectedDayNotes: DayForGetDailyNotesResponse[] | null;
+	selectedDay: string | null;
 }
 
 export const notesInitialState: NotesState = {
@@ -29,12 +32,15 @@ export const notesInitialState: NotesState = {
 		getAllNotes: StatusTypes.INITIAL,
 		getDailyNotes: StatusTypes.INITIAL,
 		getWeeklyNotes: StatusTypes.INITIAL,
+		getMonthlyNotes: StatusTypes.INITIAL,
 		getNoteDetails: StatusTypes.INITIAL,
 	},
 	notes: null,
+	notesMonthly: null,
 	notesDaily: null,
 	notesWeekly: null,
 	selectedNote: null,
 	selectedNoteId: null,
 	selectedDayNotes: null,
+	selectedDay: null,
 };

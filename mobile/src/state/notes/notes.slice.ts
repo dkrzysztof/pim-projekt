@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import moment from "moment";
 import { UpdateNoteRequest } from "../../api/note/requests";
 import {
 	DeleteNoteResponse,
@@ -122,11 +123,37 @@ const notesSlice = createSlice({
 		///
 
 		getSelectedDateNotes: (state: NotesState, action: PayloadAction<string>) => {
+			const dateFormatted = moment(action.payload, "YYYY-MM-DD");
+			state.selectedDay = action.payload;
 			state.selectedDayNotes =
-				state.notes?.filter((day) => {
-					console.log(day.eventDate);
-					return day.eventDate === action.payload;
+				state.notesDaily?.filter((day) => {
+					return day.periodValue === dateFormatted.format("DD.MM.YYYY");
 				}) || null;
+		},
+
+		///
+
+		getMonthlyNotesStart: (state: NotesState) => {
+			state.status.getMonthlyNotes = StatusTypes.LOADING;
+		},
+
+		getMonthlyNotesSuccess: (state: NotesState) => {
+			const notes = state.notesDaily;
+			if (notes) {
+				let n = notes.filter((note) => moment(note.periodValue, "DD.MM.YYYY").isValid());
+				state.notesMonthly = n.map((note) => moment(note.periodValue, "DD.MM.YYYY").format("YYYY-MM-DD"));
+			}
+			state.status.getMonthlyNotes = StatusTypes.SUCCESS;
+		},
+
+		getMonthlyNotesFailure: (state: NotesState) => {
+			state.status.getMonthlyNotes = StatusTypes.ERROR;
+		},
+
+		/// RESETS
+
+		resetGetMonthlyNotes: (state: NotesState) => {
+			state.status.getMonthlyNotes = StatusTypes.INITIAL;
 		},
 	},
 });
@@ -155,6 +182,10 @@ export const {
 	getWeeklyNotesSuccess,
 	deselectNote,
 	getSelectedDateNotes,
+	getMonthlyNotesFailure,
+	getMonthlyNotesStart,
+	getMonthlyNotesSuccess,
+	resetGetMonthlyNotes,
 } = notesSlice.actions;
 
 export default notesSlice;

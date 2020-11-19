@@ -17,24 +17,25 @@ interface CreateNoteFormProps {
 
 const CreateNoteForm: React.FC<CreateNoteFormProps> = ({ navigation }) => {
 	const [note, setNote] = useState<CreateNoteRequest>({
-		Content: "Lorem ipsum",
+		Content: undefined,
 		PriorityId: 1,
-		Title: "Nowa notatka",
+		Title: undefined,
 	});
 	const dispatch = useDispatch();
 
 	const handleButtonPress = () => {
-		const EventDate = note.EventDate ? moment(note.EventDate).add(1, "days").toISOString() : null;
+		const EventDate = note.EventDate ? moment(note.EventDate).add(1, "days").toISOString() : undefined;
 		const navigateHome = () => navigation.navigate("Home");
 		const dispatchGetUserNotes = () => dispatch(getUserNotes(navigateHome));
-		dispatch(createUserNote({ ...note }, dispatchGetUserNotes));
+		dispatch(createUserNote({ ...note, EventDate }, dispatchGetUserNotes));
 	};
 
 	return (
 		<View style={styles.formulageContainer}>
-			<Text style={styles.headerText}>{"Add new\nNote"}</Text>
+			<View style={styles.headerTextContainer}>
+				<Text style={styles.headerText}>{"Add new\nNote"}</Text>
+			</View>
 			<View style={styles.underline} />
-
 			<TextInput
 				value={note?.Title}
 				onChangeText={(Title) => setNote((ps) => ({ ...ps, Title }))}
@@ -45,9 +46,12 @@ const CreateNoteForm: React.FC<CreateNoteFormProps> = ({ navigation }) => {
 			<Picker
 				note
 				mode="dropdown"
+				placeholder="Choose priority..."
 				selectedValue={note.PriorityId}
 				onValueChange={(PriorityId) => setNote((ps) => ({ ...ps, PriorityId }))}
 				style={styles.textInput}
+				textStyle={{ borderWidth: 2, borderColor: "white" }}
+				itemStyle={{ borderWidth: 2, borderColor: "red" }}
 			>
 				<Picker.Item label="Most imporant" value={1} />
 				<Picker.Item label="Moderate" value={2} />
@@ -67,6 +71,8 @@ const CreateNoteForm: React.FC<CreateNoteFormProps> = ({ navigation }) => {
 				timeZoneOffsetInMinutes={24 * 60}
 				locale={"pl"}
 				textStyle={styles.textInputDashed}
+				placeHolderTextStyle={{ ...styles.textInputDashed, color: "gray" }}
+				placeHolderText="Event date..."
 			/>
 			<DatePicker
 				minimumDate={new Date()}
@@ -82,6 +88,8 @@ const CreateNoteForm: React.FC<CreateNoteFormProps> = ({ navigation }) => {
 				timeZoneOffsetInMinutes={24 * 60}
 				locale={"pl"}
 				textStyle={styles.textInputDashed}
+				placeHolderTextStyle={{ ...styles.textInputDashed, color: "gray", paddingTop: 15 }}
+				placeHolderText="Notification date..."
 			/>
 			<TextInput
 				onChangeText={(Content) => setNote((ps) => ({ ...ps, Content }))}
@@ -89,6 +97,7 @@ const CreateNoteForm: React.FC<CreateNoteFormProps> = ({ navigation }) => {
 				placeholder="Description..."
 				placeholderTextColor="#CCCCCC"
 				style={styles.textInputDesc}
+				multiline={true}
 			></TextInput>
 			<View style={styles.buttonsContainer}>
 				<ButtonTrans text={"Cancel"} type={"cancel"} onPress={() => navigation.navigate("Home")}></ButtonTrans>
@@ -108,6 +117,11 @@ const styles = StyleSheet.create({
 		justifyContent: "flex-start",
 		alignItems: "center",
 	},
+	headerTextContainer: {
+		marginTop: 0,
+		paddingTop: 0,
+		marginBottom: 45,
+	},
 	buttonsContainer: {
 		width: 350,
 		// paddingHorizontal:10,
@@ -119,12 +133,11 @@ const styles = StyleSheet.create({
 		// backgroundColor: 'white',
 	},
 	headerText: {
-		padding: 20,
+		paddingBottom: 20,
 		fontWeight: "normal",
 		fontSize: 28,
 		color: "#ffffff",
 		letterSpacing: 4,
-		textDecorationLine: "underline",
 		textAlign: "center",
 		textAlignVertical: "center",
 	},
@@ -153,6 +166,7 @@ const styles = StyleSheet.create({
 		borderWidth: 2,
 		color: "white",
 		paddingLeft: 15,
+		paddingTop: 15,
 		fontSize: 18,
 		width: 350,
 		height: 50,
@@ -173,6 +187,7 @@ const styles = StyleSheet.create({
 		marginBottom: 15,
 		margin: "auto",
 		textAlignVertical: "top",
+		flexWrap: "wrap",
 	},
 });
 

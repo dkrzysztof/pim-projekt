@@ -32,7 +32,9 @@ const DailyContainer: React.FC<DailyContainerProps> = ({}) => {
 		setRefreshing(true);
 		dispatch(
 			getDailyNotes(
-				() => setRefreshing(false),
+				() => {
+					setRefreshing(false);
+				},
 				() => setRefreshing(false)
 			)
 		);

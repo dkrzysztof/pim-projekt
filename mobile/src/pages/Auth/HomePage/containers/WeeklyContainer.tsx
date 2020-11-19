@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { View, Text, StyleSheet, RefreshControl, SafeAreaView, ScrollView, ActivityIndicator } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import Header from "../../../../components/shared/Header";
-import { getDailyNotes, getWeeklyNotes } from "../../../../state/notes/notes.thunk";
+import { getDailyNotes, getUserNotes, getWeeklyNotes } from "../../../../state/notes/notes.thunk";
 import { RootState } from "../../../../state/root.reducer";
 import Tile from "../components/Tile";
 

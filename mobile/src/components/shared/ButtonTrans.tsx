@@ -3,13 +3,14 @@ import { View, StyleSheet, Text, Button, Alert, TouchableOpacity } from "react-n
 import { FontAwesome5 } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 
+export type ButtonType = "edit" | "delete" | "back" | "cancel" | "add";
 export interface Props {
 	text: string;
-	type: string;
+	type: ButtonType;
 	onPress?: () => void;
 }
 
-const pickStyle = (style: string) => {
+const pickStyle = (style: ButtonType) => {
 	switch (style) {
 		case "edit":
 			return styles.editButton;
@@ -25,7 +26,7 @@ const pickStyle = (style: string) => {
 	return null;
 };
 
-const pickStyleText = (style: string) => {
+const pickStyleText = (style: ButtonType) => {
 	switch (style) {
 		case "edit":
 			return styles.editButtonText;
@@ -41,7 +42,7 @@ const pickStyleText = (style: string) => {
 	return null;
 };
 
-const pickStyleIcon = (style: string) => {
+const pickStyleIcon = (style: ButtonType) => {
 	switch (style) {
 		case "edit":
 			return <FontAwesome5 name="edit" size={16} color="#7D92FF" />;
@@ -69,7 +70,7 @@ const ButtonTrans: React.FC<Props> = (props) => {
 
 const styles = StyleSheet.create({
 	container: {
-		width: "40%",
+		width: 120,
 	},
 	container2: {
 		width: "100%",

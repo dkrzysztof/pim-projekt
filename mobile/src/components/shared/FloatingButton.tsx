@@ -13,7 +13,7 @@ interface Drawer {
 interface FloatingButtonProps<T extends keyof Drawer> {
 	navigation: DrawerNavigationProp<{ Home: undefined; CreateNote: undefined; LogOut: undefined }, T>;
 }
-const FloatingButton: React.FC<FloatingButtonProps<any>> = ({ navigation }) => {
+const FloatingButton: React.FC<FloatingButtonProps<"CreateNote" | "Home" | "LogOut">> = ({ navigation }) => {
 	const handleToggleDrawer = () => {
 		navigation.openDrawer();
 	};

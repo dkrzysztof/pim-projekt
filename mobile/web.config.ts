@@ -1,5 +1,5 @@
 const AppConfig = {
-	hostname: "http://78cbfae96451.ngrok.io",
+	hostname: "http://0a45f9cf20bb.ngrok.io",
 };
 
 export default AppConfig;

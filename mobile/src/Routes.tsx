@@ -2,13 +2,12 @@ import React, { useState, useEffect } from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import PublicPage from "./pages/PublicPage/PublicPage";
 import { useSelector } from "react-redux";
-import { StyleSheet, Text } from "react-native";
 import { RootState } from "./state/root.reducer";
 import { isStatusLoading } from "./state/utils/status.type";
-import Center from "./components/Center";
 import AuthRoute from "./pages/Auth/AuthRoute";
 import NoteDetailsContainer from "./pages/Auth/NoteDetailsPage/NoteDetailsContainer";
 import LoadingScreen from "./components/shared/LoadingScreen";
+import EditNotePageContainer from "./pages/Auth/EditNotePage/EditNotePageContainer";
 
 export type RouteParamList = {
 	Public: undefined;
@@ -22,6 +21,9 @@ export type RouteParamList = {
 		CreateNote: undefined;
 	};
 	NoteDetails: {
+		noteId: number;
+	};
+	NoteEdit: {
 		noteId: number;
 	};
 };
@@ -41,6 +43,7 @@ const Routes: React.FC<{}> = () => {
 			<Stack.Navigator initialRouteName="Auth" screenOptions={{ headerShown: false }}>
 				<Stack.Screen name="Auth" component={AuthRoute} />
 				<Stack.Screen name="NoteDetails" component={NoteDetailsContainer} />
+				<Stack.Screen name="NoteEdit" component={EditNotePageContainer} />
 			</Stack.Navigator>
 		);
 	} else {

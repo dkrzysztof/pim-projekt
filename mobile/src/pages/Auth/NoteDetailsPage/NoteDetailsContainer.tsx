@@ -1,4 +1,6 @@
+import { useFocusEffect } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
+import moment from "moment";
 import { Toast } from "native-base";
 import React, { useEffect } from "react";
 import { View, Text, Button, StyleSheet, Alert } from "react-native";
@@ -8,8 +10,8 @@ import ButtonTrans from "../../../components/shared/ButtonTrans";
 import Header from "../../../components/shared/Header";
 import LoadingScreen from "../../../components/shared/LoadingScreen";
 import { RouteParamList } from "../../../Routes";
-import { deselectNote } from "../../../state/notes/notes.slice";
-import { deleteUserNote, getNoteDetails } from "../../../state/notes/notes.thunk";
+import { deselectNote, getSelectedDateNotes } from "../../../state/notes/notes.slice";
+import { deleteUserNote, getDailyNotes, getMonthlyNotes, getNoteDetails } from "../../../state/notes/notes.thunk";
 import { RootState } from "../../../state/root.reducer";
 import { isStatusLoading, isStatusSuccess } from "../../../state/utils/status.type";
 
@@ -30,24 +32,28 @@ const NoteDetailsContainer: React.FC<NoteDetailsContainerProps> = ({ navigation,
 	const deleteNoteStatus = useSelector((state: RootState) => state.notes.status.deleteNote);
 	const dispatch = useDispatch();
 
-	useEffect(() => {
-		dispatch(getNoteDetails(idNote));
-	}, [dispatch]);
-
+	useFocusEffect(
+		React.useCallback(() => {
+			dispatch(getNoteDetails(idNote));
+		}, [dispatch, idNote])
+	);
 	if (!note || isStatusLoading(deleteNoteStatus)) return <LoadingScreen />;
 
-	const eventDateString = new Date(note.eventDate || "").toLocaleDateString("en");
-	const notificationDateString = new Date(note.notificationDate || "").toLocaleDateString("pl");
+	const eventDateString = note.eventDate ? moment(note.eventDate).format("DD.MM.YYYY") : "No Due";
+	const notificationDateString = note.notificationDate
+		? moment(note.notificationDate).format("DD.MM.YYYY")
+		: "No Notification";
 	const borderBottomColor = note.priorityId === 1 ? "#EE5353" : note.priorityId === 2 ? "#E88E3B" : "#BFBFBF";
 
 	const handleDelete = () => {
 		dispatch(
 			deleteUserNote(idNote, () => {
-				Toast.show({
-					text: "Note was deleted!",
-					buttonText: "Okay",
-					type: "success",
-				});
+				dispatch(getDailyNotes(() => dispatch(getMonthlyNotes(() => dispatch(deselectNote())))));
+				// Toast.show({
+				// 	text: "Note was deleted!",
+				// 	buttonText: "Okay",
+				// 	type: "success",
+				// });
 			})
 		);
 	};
@@ -83,7 +89,13 @@ const NoteDetailsContainer: React.FC<NoteDetailsContainerProps> = ({ navigation,
 
 					<View style={styles.buttonsContainer}>
 						<View style={styles.buttonsInnerContainer}>
-							<ButtonTrans text={"Edit"} type={"edit"} />
+							<ButtonTrans
+								text={"Edit"}
+								type={"edit"}
+								onPress={() => {
+									navigation.navigate("NoteEdit", { noteId: idNote });
+								}}
+							/>
 							<ButtonTrans
 								text={"Delete"}
 								type={"delete"}
