@@ -18,6 +18,7 @@ export interface NotesState {
 	notesWeekly: WeekForGetWeeklyNotesResponse[] | null;
 	selectedNoteId: number | null;
 	selectedNote: NoteForGetAllNotesResponse | null;
+	selectedDayNotes: NoteForGetAllNotesResponse[] | null;
 }
 
 export const notesInitialState: NotesState = {
@@ -35,4 +36,5 @@ export const notesInitialState: NotesState = {
 	notesWeekly: null,
 	selectedNote: null,
 	selectedNoteId: null,
+	selectedDayNotes: null,
 };

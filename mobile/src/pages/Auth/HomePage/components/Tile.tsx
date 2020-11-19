@@ -4,29 +4,60 @@ import Task from "../../../../components/shared/Task";
 import { NoteForGetDailyNotesResponse } from "../../../../api/note/responses";
 import moment from "moment";
 
+export type Granulality = "days" | "weeks";
+
 export interface Props {
 	notes: NoteForGetDailyNotesResponse[];
 	dueDate: string;
 	onPress: (noteId: number) => () => void;
+	presentationalDateString?: string;
+	granularity: Granulality;
 }
 
-const Tile: React.FC<Props> = ({ notes, dueDate, onPress }) => {
-	let today = moment();
-	let noteDate = moment(dueDate, "DD.MM.YYYY");
+function generateDateStringForDays(date: moment.Moment): string {
+	const today = moment();
+	const startOfWeek = moment().subtract(1, "days").endOf("day");
+	const endOfWeek = moment().add(6, "days").endOf("day");
 
-	let stringDate = dueDate;
-	if (
-		noteDate.isAfter(today.subtract(1, "days").endOf("day")) &&
-		noteDate.isBefore(today.add(7, "days").endOf("day"))
-	) {
-		stringDate = noteDate.format("dddd");
+	if (date.isSame(today, "day")) return "Today";
+
+	if (date.isAfter(startOfWeek) && date.isBefore(endOfWeek)) return date.format("dddd");
+
+	if (date.isValid()) return date.format("DD.MM.YYYY");
+	else return "No Due";
+}
+
+const Tile: React.FC<Props> = ({ notes, dueDate, onPress, granularity, presentationalDateString }) => {
+	let noteMomentDate = moment();
+	let noteDate;
+	let localeDateString;
+
+	switch (granularity) {
+		case "days":
+			noteMomentDate = moment(dueDate, "DD.MM.YYYY");
+			noteDate = generateDateStringForDays(noteMomentDate);
+			localeDateString = noteMomentDate.format("DD.MM.YYYY");
+			break;
+		case "weeks":
+			noteMomentDate = moment(dueDate);
+			noteDate = presentationalDateString;
+			localeDateString = presentationalDateString;
+			break;
 	}
 
+	const isCurrent = noteMomentDate.diff(moment().subtract(1, "days")) > 0;
+
 	return (
-		<View style={[styles.noteContainer, dueDate ? null : { borderColor: "#7D92FF" }]}>
+		<View
+			style={[
+				styles.noteContainer,
+				// noteMomentDate.isValid() ? null : { borderColor: "#7D92FF" },
+				isCurrent ? styles.noteContainerAfterOrToday : styles.noteContainerBeforeToday,
+			]}
+		>
 			<View style={styles.noteHeaderContainer}>
-				<Text style={styles.headerText}>{stringDate}</Text>
-				{dueDate ? <Text style={styles.headerDate}>{}</Text> : null}
+				<Text style={styles.headerText}>{noteDate}</Text>
+				{noteMomentDate.isValid() ? <Text style={styles.headerDate}>{localeDateString}</Text> : null}
 			</View>
 			<View style={styles.underline} />
 
@@ -47,11 +78,16 @@ const styles = StyleSheet.create({
 		borderWidth: 2,
 		color: "white",
 		justifyContent: "center",
-		backgroundColor: "#1B1F28",
 		alignItems: "flex-start",
 		shadowOpacity: 1,
 		shadowRadius: 20,
 		shadowColor: "red",
+	},
+	noteContainerBeforeToday: {
+		backgroundColor: "#242323",
+	},
+	noteContainerAfterOrToday: {
+		backgroundColor: "#1B1F28",
 	},
 	noteHeaderContainer: {
 		width: "100%",

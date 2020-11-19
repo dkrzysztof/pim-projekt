@@ -86,6 +86,7 @@ const notesSlice = createSlice({
 
 		getDailyNotesStart: (state: NotesState) => {
 			state.status.getDailyNotes = StatusTypes.LOADING;
+			// state.notesDaily = null;
 		},
 		getDailyNotesSuccess: (state: NotesState, action: PayloadAction<GetDailyNotesResponse>) => {
 			state.status.getDailyNotes = StatusTypes.SUCCESS;
@@ -100,6 +101,7 @@ const notesSlice = createSlice({
 
 		getWeeklyNotesStart: (state: NotesState) => {
 			state.status.getWeeklyNotes = StatusTypes.LOADING;
+			// state.notesWeekly = null;
 		},
 		getWeeklyNotesSuccess: (state: NotesState, action: PayloadAction<GetWeeklyNotesResponse>) => {
 			state.status.getWeeklyNotes = StatusTypes.SUCCESS;
@@ -111,6 +113,21 @@ const notesSlice = createSlice({
 		},
 
 		///
+
+		deselectNote: (state: NotesState) => {
+			state.selectedNoteId = null;
+			state.selectedNote = null;
+		},
+
+		///
+
+		getSelectedDateNotes: (state: NotesState, action: PayloadAction<string>) => {
+			state.selectedDayNotes =
+				state.notes?.filter((day) => {
+					console.log(day.eventDate);
+					return day.eventDate === action.payload;
+				}) || null;
+		},
 	},
 });
 
@@ -136,6 +153,8 @@ export const {
 	getWeeklyNotesFailure,
 	getWeeklyNotesStart,
 	getWeeklyNotesSuccess,
+	deselectNote,
+	getSelectedDateNotes,
 } = notesSlice.actions;
 
 export default notesSlice;

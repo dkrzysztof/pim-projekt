@@ -1,13 +1,19 @@
-import * as React from 'react';
-import { StyleSheet, View, Text, TextInput, TouchableOpacity } from 'react-native';
-import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { registerUser } from '../../../state/session/session.thunk';
+import * as React from "react";
+import { StyleSheet, View, Text, TextInput, TouchableOpacity } from "react-native";
+import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { registerUser } from "../../../state/session/session.thunk";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 const SingUpPage: React.FC<{}> = () => {
-
 	const [loading, setLoading] = useState<boolean>(false);
-	const [credentials, setCredentials] = useState({ FirstName: "", LastName: "", Email: "", Password: "", ConfirmPassword: "" });
+	const [credentials, setCredentials] = useState({
+		FirstName: "",
+		LastName: "",
+		Email: "",
+		Password: "",
+		ConfirmPassword: "",
+	});
 
 	const dispatch = useDispatch();
 	let isMounted = true;
@@ -30,16 +36,19 @@ const SingUpPage: React.FC<{}> = () => {
 	return (
 		<>
 			<View style={styles.viewTextInput}>
-
 				<TextInput
 					placeholder="First name"
 					placeholderTextColor="#CCCCCC"
 					style={styles.textInput}
-					onChangeText={(FirstName) => setCredentials({ FirstName,
-												LastName: credentials.LastName, 
-												Email: credentials.Email, 
-												Password: credentials.Password, 
-												ConfirmPassword: credentials.ConfirmPassword })}
+					onChangeText={(FirstName) =>
+						setCredentials({
+							FirstName,
+							LastName: credentials.LastName,
+							Email: credentials.Email,
+							Password: credentials.Password,
+							ConfirmPassword: credentials.ConfirmPassword,
+						})
+					}
 					value={credentials.FirstName}
 				></TextInput>
 
@@ -47,11 +56,15 @@ const SingUpPage: React.FC<{}> = () => {
 					placeholder="Last name"
 					placeholderTextColor="#CCCCCC"
 					style={styles.textInput}
-					onChangeText={(LastName) => setCredentials({ FirstName: credentials.FirstName,
-												LastName, 
-												Email: credentials.Email, 
-												Password: credentials.Password, 
-												ConfirmPassword: credentials.ConfirmPassword })}
+					onChangeText={(LastName) =>
+						setCredentials({
+							FirstName: credentials.FirstName,
+							LastName,
+							Email: credentials.Email,
+							Password: credentials.Password,
+							ConfirmPassword: credentials.ConfirmPassword,
+						})
+					}
 					value={credentials.LastName}
 				></TextInput>
 
@@ -59,11 +72,15 @@ const SingUpPage: React.FC<{}> = () => {
 					placeholder="Email"
 					placeholderTextColor="#CCCCCC"
 					style={styles.textInput}
-					onChangeText={(Email) => setCredentials({ FirstName: credentials.FirstName,
-												LastName: credentials.LastName, 
-												Email, 
-												Password: credentials.Password, 
-												ConfirmPassword: credentials.ConfirmPassword })}
+					onChangeText={(Email) =>
+						setCredentials({
+							FirstName: credentials.FirstName,
+							LastName: credentials.LastName,
+							Email,
+							Password: credentials.Password,
+							ConfirmPassword: credentials.ConfirmPassword,
+						})
+					}
 					value={credentials.Email}
 				></TextInput>
 
@@ -72,11 +89,15 @@ const SingUpPage: React.FC<{}> = () => {
 					placeholderTextColor="#CCCCCC"
 					secureTextEntry
 					style={styles.textInput}
-					onChangeText={(Password) => setCredentials({ FirstName: credentials.FirstName,
-												LastName: credentials.LastName, 
-												Email: credentials.Email, 
-												Password, 
-												ConfirmPassword: credentials.ConfirmPassword })}
+					onChangeText={(Password) =>
+						setCredentials({
+							FirstName: credentials.FirstName,
+							LastName: credentials.LastName,
+							Email: credentials.Email,
+							Password,
+							ConfirmPassword: credentials.ConfirmPassword,
+						})
+					}
 					value={credentials.Password}
 				></TextInput>
 
@@ -85,14 +106,17 @@ const SingUpPage: React.FC<{}> = () => {
 					placeholderTextColor="#CCCCCC"
 					secureTextEntry
 					style={styles.textInput}
-					onChangeText={(ConfirmPassword) => setCredentials({ FirstName: credentials.FirstName,
-												LastName: credentials.LastName, 
-												Email: credentials.Email, 
-												Password: credentials.Password,  
-												ConfirmPassword})}
+					onChangeText={(ConfirmPassword) =>
+						setCredentials({
+							FirstName: credentials.FirstName,
+							LastName: credentials.LastName,
+							Email: credentials.Email,
+							Password: credentials.Password,
+							ConfirmPassword,
+						})
+					}
 					value={credentials.ConfirmPassword}
 				></TextInput>
-
 			</View>
 			<View style={styles.bottomPaneContainer}>
 				<TouchableOpacity
@@ -139,7 +163,6 @@ const styles = StyleSheet.create({
 		alignItems: "center",
 	},
 	bottomPaneContainer: {
-		bottom: 0,
 		height: "30%",
 	},
 	topRectangle: {
@@ -147,8 +170,6 @@ const styles = StyleSheet.create({
 	},
 	signUpButton: {
 		position: "absolute",
-		zIndex: 0,
-		bottom: 50,
 		right: 50,
 		backgroundColor: "white",
 		width: 120,
@@ -157,13 +178,10 @@ const styles = StyleSheet.create({
 	},
 	bottomRectangle: {
 		position: "absolute",
-		bottom: 0,
-		left: 0,
 		width: "100%",
-		height: 0,
+		height: 80,
 		backgroundColor: "#414858",
 	},
 });
-
 
 export default SingUpPage;

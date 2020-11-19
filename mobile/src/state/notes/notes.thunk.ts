@@ -8,6 +8,7 @@ import {
 	deleteNoteFailure,
 	deleteNoteStart,
 	deleteNoteSuccess,
+	deselectNote,
 	getAllNotesFailure,
 	getAllNotesStart,
 	getAllNotesSuccess,
@@ -17,15 +18,22 @@ import {
 	getNoteDetailsFailure,
 	getNoteDetailsStart,
 	getNoteDetailsSuccess,
+	getSelectedDateNotes,
 	getWeeklyNotesFailure,
 	getWeeklyNotesStart,
 	getWeeklyNotesSuccess,
+	updateNoteFailure,
+	updateNoteStart,
+	updateNoteSuccess,
 } from "./notes.slice";
 
-export const getUserNotes = (): AppThunk => (dispatch) => {
+export const getUserNotes = (onSuccess?: () => void): AppThunk => (dispatch) => {
 	dispatch(getAllNotesStart());
 	agent.Notes.getAllNotes()
-		.then((res) => dispatch(getAllNotesSuccess(res)))
+		.then((res) => {
+			dispatch(getAllNotesSuccess(res));
+			if (onSuccess) onSuccess();
+		})
 		.catch((err) => dispatch(getAllNotesFailure(err)));
 };
 
@@ -34,16 +42,17 @@ export const deleteUserNote = (idNote: number, onSuccess?): AppThunk => (dispatc
 	agent.Notes.deleteNote(idNote)
 		.then(() => {
 			dispatch(deleteNoteSuccess());
-			if (onSuccess) onSuccess;
+			dispatch(deselectNote());
+			if (onSuccess) onSuccess();
 		})
 		.catch((err) => dispatch(deleteNoteFailure(err)));
 };
 
 export const updateUserNote = (body: UpdateNoteRequest): AppThunk => (dispatch) => {
-	dispatch(deleteNoteStart());
+	dispatch(updateNoteStart());
 	agent.Notes.updateNote(body)
-		.then(() => dispatch(deleteNoteSuccess()))
-		.catch((err) => dispatch(deleteNoteFailure(err)));
+		.then(() => dispatch(updateNoteSuccess()))
+		.catch((err) => dispatch(updateNoteFailure(err)));
 };
 
 export const getNoteDetails = (idNote: number): AppThunk => (dispatch) => {
@@ -74,6 +83,10 @@ export const getDailyNotes = (onSuccess?, onFailure?): AppThunk => (dispatch) =>
 			dispatch(getDailyNotesFailure(err));
 			if (onFailure) onFailure();
 		});
+};
+
+export const getSelectedDateN = (date: any, onSuccess?, onFailure?): AppThunk => (dispatch) => {
+	dispatch(getSelectedDateNotes());
 };
 
 export const getWeeklyNotes = (onSuccess?, onFailure?): AppThunk => (dispatch) => {

@@ -1,6 +1,6 @@
-import { useNavigation } from "@react-navigation/native";
+import { useFocusEffect, useNavigation } from "@react-navigation/native";
 import React, { useEffect } from "react";
-import { View, Text, StyleSheet, RefreshControl, SafeAreaView, ScrollView } from "react-native";
+import { View, Text, StyleSheet, RefreshControl, SafeAreaView, ScrollView, ActivityIndicator } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import Header from "../../../../components/shared/Header";
 import { getDailyNotes, getWeeklyNotes } from "../../../../state/notes/notes.thunk";
@@ -27,9 +27,11 @@ const WeeklyContainer: React.FC<WeeklyContainerProps> = ({ navigation }) => {
 		);
 	}, []);
 
-	useEffect(() => {
-		dispatch(getDailyNotes());
-	}, [navigation]);
+	useFocusEffect(
+		React.useCallback(() => {
+			dispatch(getWeeklyNotes());
+		}, [dispatch])
+	);
 
 	const handleNotesDetailsClick = (noteId: number) => {
 		return () => {
@@ -40,7 +42,14 @@ const WeeklyContainer: React.FC<WeeklyContainerProps> = ({ navigation }) => {
 	const notesComponent =
 		weeklyNotes &&
 		weeklyNotes.map((daily, key) => (
-			<Tile key={key} notes={daily.notes} dueDate={daily.periodValue} onPress={handleNotesDetailsClick} />
+			<Tile
+				key={key}
+				notes={daily.notes}
+				dueDate={daily.periodEnd}
+				onPress={handleNotesDetailsClick}
+				granularity="weeks"
+				presentationalDateString={daily.periodValue}
+			/>
 		));
 
 	return (

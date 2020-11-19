@@ -7,8 +7,6 @@ export const sessionSlice = createSlice({
 	name: "session",
 	initialState: sessionInitialState,
 	reducers: {
-
-
 		authenticateUserStart: (state: SessionState) => {
 			state.status.authenticateUser = StatusTypes.LOADING;
 		},
@@ -24,9 +22,6 @@ export const sessionSlice = createSlice({
 			state.info = sessionInitialState.info;
 		},
 
-
-
-
 		registerUserStart: (state: SessionState) => {
 			state.status.authenticateUser = StatusTypes.LOADING;
 		},
@@ -34,12 +29,9 @@ export const sessionSlice = createSlice({
 			state.status.authenticateUser = StatusTypes.SUCCESS;
 			state.info = action.payload;
 		},
-		registerUserFailure: (state: SessionState, action: PayloadAction<string[]> ) => {
+		registerUserFailure: (state: SessionState, action: PayloadAction<string[]>) => {
 			state.status.authenticateUser = StatusTypes.ERROR;
 		},
-
-
-
 
 		///
 

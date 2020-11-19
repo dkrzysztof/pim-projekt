@@ -44,6 +44,8 @@ const styles = StyleSheet.create({
 		paddingTop: 10,
 		// backgroundColor: 'red',
 		// justifyContent: 'flex-start',
+		marginTop: 5,
+		marginBottom: 5,
 		alignItems: "center",
 		display: "flex",
 		flexDirection: "row",
@@ -81,7 +83,7 @@ const styles = StyleSheet.create({
 		height: 15,
 		width: 15,
 		backgroundColor: "#E88E3B",
-		borderRadius: 50,
+		borderRadius: 2,
 	},
 	mediumTaskIconDone: {
 		height: 15,

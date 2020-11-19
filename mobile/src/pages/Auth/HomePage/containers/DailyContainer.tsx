@@ -1,11 +1,13 @@
-import { useNavigation } from "@react-navigation/native";
+import { useFocusEffect, useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import React, { useEffect } from "react";
 import { View, StyleSheet, SafeAreaView, ScrollView, RefreshControl } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import Header from "../../../../components/shared/Header";
+import LoadingScreen from "../../../../components/shared/LoadingScreen";
 import { getDailyNotes, getUserNotes } from "../../../../state/notes/notes.thunk";
 import { RootState } from "../../../../state/root.reducer";
+import { isStatusLoading, isStatusSuccess } from "../../../../state/utils/status.type";
 import Tile from "../components/Tile";
 
 interface DailyContainerProps {
@@ -36,9 +38,11 @@ const DailyContainer: React.FC<DailyContainerProps> = ({}) => {
 		);
 	}, []);
 
-	useEffect(() => {
-		dispatch(getDailyNotes());
-	}, [dispatch]);
+	useFocusEffect(
+		React.useCallback(() => {
+			dispatch(getDailyNotes());
+		}, [dispatch])
+	);
 
 	const handleNotesDetailsClick = (noteId: number) => {
 		return () => {
@@ -49,13 +53,18 @@ const DailyContainer: React.FC<DailyContainerProps> = ({}) => {
 	const notesComponent =
 		dailyNotes &&
 		dailyNotes.map((daily, key) => (
-			<Tile key={key} notes={daily.notes} dueDate={daily.periodValue} onPress={handleNotesDetailsClick} />
+			<Tile
+				key={key}
+				notes={daily.notes}
+				dueDate={daily.periodValue}
+				onPress={handleNotesDetailsClick}
+				granularity="days"
+			/>
 		));
 
 	return (
 		<SafeAreaView style={styles.container}>
 			<ScrollView refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}>
-				{/* <ScrollView> */}
 				<Header />
 				<View style={styles.notesContainer}>{notesComponent}</View>
 			</ScrollView>

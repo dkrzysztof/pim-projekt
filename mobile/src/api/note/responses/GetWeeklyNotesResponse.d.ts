@@ -3,6 +3,7 @@ export interface GetWeeklyNotesResponse {
 }
 
 export interface WeekForGetWeeklyNotesResponse {
+	periodEnd: string;
 	periodValue: string;
 	notes: NoteForGetWeeklyNotesResponse[];
 }

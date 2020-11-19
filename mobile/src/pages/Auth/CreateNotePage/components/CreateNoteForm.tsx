@@ -1,3 +1,4 @@
+import { DrawerNavigationProp } from "@react-navigation/drawer";
 import { StackNavigationProp } from "@react-navigation/stack";
 import moment from "moment";
 import { DatePicker, Picker } from "native-base";
@@ -7,11 +8,11 @@ import { Text, View } from "react-native";
 import { useDispatch } from "react-redux";
 import { CreateNoteRequest } from "../../../../api/note/requests";
 import ButtonTrans from "../../../../components/shared/ButtonTrans";
-import { createUserNote } from "../../../../state/notes/notes.thunk";
+import { createUserNote, getUserNotes } from "../../../../state/notes/notes.thunk";
 
 interface CreateNoteFormProps {
 	onPress?: () => void;
-	navigation: StackNavigationProp<{ Home: undefined; CreateNote: undefined; LogOut: undefined }, "CreateNote">;
+	navigation: DrawerNavigationProp<{ Home: undefined; CreateNote: undefined; LogOut: undefined }, "CreateNote">;
 }
 
 const CreateNoteForm: React.FC<CreateNoteFormProps> = ({ navigation }) => {
@@ -23,12 +24,10 @@ const CreateNoteForm: React.FC<CreateNoteFormProps> = ({ navigation }) => {
 	const dispatch = useDispatch();
 
 	const handleButtonPress = () => {
-		// console.log(note.EventDate);
-		dispatch(
-			createUserNote({ ...note, EventDate: moment(note.EventDate).add(1, "days").toISOString() }, () =>
-				navigation.navigate("Home")
-			)
-		);
+		const EventDate = note.EventDate ? moment(note.EventDate).add(1, "days").toISOString() : null;
+		const navigateHome = () => navigation.navigate("Home");
+		const dispatchGetUserNotes = () => dispatch(getUserNotes(navigateHome));
+		dispatch(createUserNote({ ...note }, dispatchGetUserNotes));
 	};
 
 	return (

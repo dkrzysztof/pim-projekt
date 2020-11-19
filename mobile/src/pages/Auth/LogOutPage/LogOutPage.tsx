@@ -13,7 +13,7 @@ const LogOutPage: React.FC<{}> = () => {
 
 	return (
 		<Center>
-			<Text>Wylogwywanie...</Text>
+			<Text style={{ color: "white", fontSize: 28 }}>Wylogwywanie...</Text>
 		</Center>
 	);
 };

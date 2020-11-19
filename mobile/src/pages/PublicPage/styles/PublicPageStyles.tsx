@@ -1,48 +1,59 @@
-import { StyleSheet } from 'react-native';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
+import { StyleSheet } from "react-native";
+import { Colors } from "react-native/Libraries/NewAppScreen";
 
 const PublicPageStyles = StyleSheet.create({
 	container: {
-		paddingTop: 10,
+		paddingTop: 20,
 		flex: 1,
-		color: 'white',
-		backgroundColor: '#292F3D',
-		alignItems: 'center',
-		justifyContent: 'center'
+		justifyContent: "space-between",
+		alignItems: "center",
+		color: "white",
+		backgroundColor: "#292F3D",
+		height: "100%",
+		width: "100%",
+	},
+	justifyContentAround: {
+		height: "100%",
+		width: "100%",
+		flex: 1,
+		justifyContent: "space-around",
+		alignItems: "center",
 	},
 	bodyContainer: {
 		flex: 1,
-		alignItems: 'center',
-		justifyContent: 'space-around',
-		width: 350,
-		height: '100%',
+		alignItems: "center",
+		justifyContent: "space-around",
+		width: "100%",
+		height: 300,
 	},
 	titleContainer: {
-		flex: 1,
-		height: '10%',
-		width: '100%',
-		justifyContent: 'center',
-		alignItems: 'center'
-	},
-	buttonsContainer: {
-		height: '100%',
-		width: '90%',
-		flex: 1,
-		flexDirection: 'row',
-		justifyContent: 'space-around',
-		alignItems: 'center'
+		paddingTop: 30,
+		height: 100,
+		margin: "auto",
+		alignSelf: "center",
 	},
 	componentContainer: {
-		display: "flex",
-		height: '60%',
-		width: '100%',
+		flex: 1,
+		justifyContent: "flex-end",
+		alignItems: "flex-end",
+		height: 800,
+		bottom: 0,
+		width: "100%",
 	},
+	buttonsContainer: {
+		flex: 1,
+		flexDirection: "row",
+		justifyContent: "space-around",
+		alignItems: "center",
+		maxHeight: 100,
+	},
+
 	title: {
-		color: 'white',
+		color: "white",
 		fontSize: 48,
-		fontFamily: 'RobotoSlab_Bold',
-		letterSpacing: 5
-	}
+		fontFamily: "RobotoSlab_Bold",
+		letterSpacing: 5,
+	},
 });
 
 export default PublicPageStyles;

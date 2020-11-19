@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import PublicPage from "./pages/PublicPage/PublicPage";
 import { useSelector } from "react-redux";
@@ -8,6 +8,7 @@ import { isStatusLoading } from "./state/utils/status.type";
 import Center from "./components/Center";
 import AuthRoute from "./pages/Auth/AuthRoute";
 import NoteDetailsContainer from "./pages/Auth/NoteDetailsPage/NoteDetailsContainer";
+import LoadingScreen from "./components/shared/LoadingScreen";
 
 export type RouteParamList = {
 	Public: undefined;
@@ -25,17 +26,6 @@ export type RouteParamList = {
 	};
 };
 
-const styles = StyleSheet.create({
-	background: {
-		color: "white",
-		backgroundColor: "#292F3D",
-	},
-	text: {
-		color: "white",
-		fontSize: 20,
-	},
-});
-
 const Stack = createStackNavigator<RouteParamList>();
 
 const Routes: React.FC<{}> = () => {
@@ -43,12 +33,7 @@ const Routes: React.FC<{}> = () => {
 	const authenticateUserStatus = useSelector((state: RootState) => state.session.status.authenticateUser);
 
 	if (isStatusLoading(authenticateUserStatus)) {
-		console.log("Splash screen set up!");
-		return (
-			<Center>
-				<Text style={styles.text}>Loading...</Text>
-			</Center>
-		);
+		return <LoadingScreen />;
 	}
 
 	if (isUserLoggedIn) {

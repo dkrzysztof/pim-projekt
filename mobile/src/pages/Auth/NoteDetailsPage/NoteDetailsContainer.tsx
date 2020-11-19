@@ -1,15 +1,17 @@
 import { StackNavigationProp } from "@react-navigation/stack";
+import { Toast } from "native-base";
 import React, { useEffect } from "react";
 import { View, Text, Button, StyleSheet, Alert } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import { useDispatch, useSelector } from "react-redux";
-import { AuthNavProps } from "../../../api/types/AuthNavProps";
-import Center from "../../../components/Center";
 import ButtonTrans from "../../../components/shared/ButtonTrans";
 import Header from "../../../components/shared/Header";
+import LoadingScreen from "../../../components/shared/LoadingScreen";
 import { RouteParamList } from "../../../Routes";
+import { deselectNote } from "../../../state/notes/notes.slice";
 import { deleteUserNote, getNoteDetails } from "../../../state/notes/notes.thunk";
 import { RootState } from "../../../state/root.reducer";
+import { isStatusLoading, isStatusSuccess } from "../../../state/utils/status.type";
 
 interface NoteDetailsContainerProps {
 	navigation: StackNavigationProp<RouteParamList, "NoteDetails">;
@@ -25,21 +27,32 @@ interface NoteDetailsContainerProps {
 const NoteDetailsContainer: React.FC<NoteDetailsContainerProps> = ({ navigation, route }) => {
 	const idNote = route.params.noteId;
 	const note = useSelector((state: RootState) => state.notes.selectedNote);
+	const deleteNoteStatus = useSelector((state: RootState) => state.notes.status.deleteNote);
 	const dispatch = useDispatch();
 
 	useEffect(() => {
 		dispatch(getNoteDetails(idNote));
 	}, [dispatch]);
 
-	if (!note)
-		return (
-			<Center>
-				<Text>Loading...</Text>
-			</Center>
-		);
+	if (!note || isStatusLoading(deleteNoteStatus)) return <LoadingScreen />;
 
 	const eventDateString = new Date(note.eventDate || "").toLocaleDateString("en");
 	const notificationDateString = new Date(note.notificationDate || "").toLocaleDateString("pl");
+	const borderBottomColor = note.priorityId === 1 ? "#EE5353" : note.priorityId === 2 ? "#E88E3B" : "#BFBFBF";
+
+	const handleDelete = () => {
+		dispatch(
+			deleteUserNote(idNote, () => {
+				Toast.show({
+					text: "Note was deleted!",
+					buttonText: "Okay",
+					type: "success",
+				});
+			})
+		);
+	};
+
+	if (isStatusSuccess(deleteNoteStatus)) navigation.goBack();
 
 	return (
 		<View style={styles.container}>
@@ -49,7 +62,7 @@ const NoteDetailsContainer: React.FC<NoteDetailsContainerProps> = ({ navigation,
 					<View style={styles.contentContainer}>
 						<View style={styles.titleContainer}>
 							<Text style={styles.titleText}>{note.title}</Text>
-							<View style={styles.titleUnderline} />
+							<View style={{ ...styles.titleUnderline, borderBottomColor }} />
 						</View>
 						<View style={styles.dateContainer}>
 							<Text style={styles.dateText}>{eventDateString || "No event date !"}</Text>
@@ -86,9 +99,7 @@ const NoteDetailsContainer: React.FC<NoteDetailsContainerProps> = ({ navigation,
 											},
 											{
 												text: "OK",
-												onPress: () => {
-													dispatch(deleteUserNote(idNote, () => navigation.goBack()));
-												},
+												onPress: handleDelete,
 											},
 										],
 										{ cancelable: false }
@@ -96,7 +107,14 @@ const NoteDetailsContainer: React.FC<NoteDetailsContainerProps> = ({ navigation,
 								}
 							/>
 						</View>
-						<ButtonTrans text={"Go back"} type={"back"} onPress={() => navigation.goBack()} />
+						<ButtonTrans
+							text={"Go back"}
+							type={"back"}
+							onPress={() => {
+								dispatch(deselectNote());
+								navigation.goBack();
+							}}
+						/>
 					</View>
 				</View>
 			</ScrollView>
@@ -136,7 +154,6 @@ const styles = StyleSheet.create({
 	titleUnderline: {
 		width: "100%",
 		borderBottomWidth: 3,
-		borderBottomColor: "#EE5353",
 		borderRadius: 10,
 	},
 	thinUnderline: {
