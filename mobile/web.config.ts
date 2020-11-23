@@ -1,5 +1,5 @@
 const AppConfig = {
-	hostname: "http://0a45f9cf20bb.ngrok.io",
+	hostname: "http://pawelkob-002-site11.itempurl.com",
 };
 
 export default AppConfig;
