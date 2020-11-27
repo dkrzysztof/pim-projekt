@@ -19,7 +19,7 @@ import { Icon } from "react-native-elements";
 
 const LoginPage: React.FC<AuthNavProps<"Public">> = ({ navigation }) => {
 	const [loading, setLoading] = useState<boolean>(false);
-	const [credentials, setCredentials] = useState({ email: "user3@user.com", password: "Admin123!" });
+	const [credentials, setCredentials] = useState({ email: "user@user.com", password: "Admin123!" });
 	const dispatch = useDispatch();
 	let isMounted = true;
 	useEffect(() => {

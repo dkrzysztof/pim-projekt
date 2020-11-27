@@ -31,7 +31,7 @@ function mapTasksToDots(notesDates: string[]) {
 	const markedDates: MarkedDates = {};
 
 	notesDates.forEach((day) => {
-		markedDates[new Date(day).toLocaleDateString()] = { marked: true };
+		markedDates[moment(day).format("YYYY-MM-DD")] = { marked: true };
 	});
 
 	return markedDates;
@@ -88,7 +88,7 @@ const MonthlyContainer: React.FC<{}> = () => {
 		};
 	};
 
-	console.log("selectedDayNotes", selectedDayNotes);
+	console.log("marked days", selectedDate);
 	const DailyTileForTask =
 		selectedDayNotes &&
 		selectedDayNotes.map((daily, key) => (
